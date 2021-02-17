@@ -1,20 +1,20 @@
-import { getFruits } from '../apis/fruits'
+import { getWords } from '../apis/words'
 
-export const SET_FRUITS = 'SET_FRUITS'
+export const SET_WORDS = 'SET_WORDS'
 
-export function setFruits (fruits) {
+export function setWords(words) {
   return {
-    type: SET_FRUITS,
-    fruits
+    type: SET_WORDS,
+    words: words
   }
 }
 
-export function fetchFruits () {
+export function fetchWords () {
   return dispatch => {
-    return getFruits()
-      .then(fruits => {
-        dispatch(setFruits(fruits))
-        return null
-      })
+    return getWords()
+    .then(words => {
+      dispatch(setWords(words))
+      return null
+    })
   }
 }
