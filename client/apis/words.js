@@ -8,3 +8,11 @@ export function getWords () {
         return res.body
     })
 }
+
+export function addWords (words) {
+    return request.post(rootUrl + '/words')
+    .send(words)
+    .then(res => {
+        return res.body
+    })
+}

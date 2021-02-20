@@ -1,4 +1,5 @@
 import React from 'react'
+import AddWord from './AddWord'
 import ListOfWords from './ListOfWords'
 
 function App () {
@@ -6,6 +7,7 @@ function App () {
     <>
       <h1>Here are the words</h1>
       <ListOfWords/>
+      <AddWord/>
     </>
   )
 }

@@ -1,4 +1,4 @@
-import { SET_WORDS } from '../actions'
+import { SET_WORDS, ADD_WORDS } from '../actions'
 
 const intialState = []
 
@@ -7,6 +7,8 @@ const reducer = (state = intialState, action) => {
         case SET_WORDS:
             console.log(action.words)
             return action.words
+        case ADD_WORDS:
+            return [...state, {id: action.id, word: action.word, meaning: action.meaning}]
         default:
             return state
     }
