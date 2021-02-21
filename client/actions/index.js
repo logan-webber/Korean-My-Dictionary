@@ -1,8 +1,9 @@
-import { getWords, addWords, deleteWords } from '../apis/words'
+import { getWords, addWords, deleteWords, updateWords } from '../apis/words'
 
 export const SET_WORDS = 'SET_WORDS'
 export const ADD_WORDS = 'ADD_WORDS'
 export const DELETE_WORDS = 'DELETE_WORDS'
+export const UPDATE_WORDS = 'UPDATE_WORDS'
 
 export function setWords(words) {
   return {
@@ -34,6 +35,17 @@ export function addTheWords(words){
 export function deleteTheWords(id){
   return dispatch => {
     return deleteWords(id)
+    .then(() => {
+      dispatch(fetchWords())
+      return null
+    })
+  }
+}
+
+export function updateTheWords(id, word) {
+  return dispatch => {
+    console.log(id, word)
+    return updateWords(id, word)
     .then(() => {
       dispatch(fetchWords())
       return null

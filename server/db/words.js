@@ -1,4 +1,3 @@
-const { connect } = require('../routes/word')
 const connection = require('./connection')
 
 function getWord (db = connection){
@@ -18,8 +17,17 @@ function deleteWord (id, db = connection) {
     })
 }
 
+function updateWord (id, word, db = connection) {
+    return db('words').update(word).where('id', id)
+    .then(rowCount => {
+        console.log(rowCount)
+        return rowCount
+    })
+}
+
 module.exports = {
     getWord,
     addWord,
-    deleteWord
+    deleteWord,
+    updateWord,
 }

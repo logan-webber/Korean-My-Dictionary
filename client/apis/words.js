@@ -23,3 +23,11 @@ export function deleteWords (id) {
         return res.body
     })
 }
+
+export function updateWords (id, word) {
+    return request.patch(rootUrl + '/words/' + id)
+    .send(word)
+    .then(res => {
+        return res.body
+    })
+}

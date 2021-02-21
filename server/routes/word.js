@@ -46,4 +46,20 @@ router.delete('/:id', (req, res) => {
       })
 })
 
+router.patch('/:id', (req, res) => {
+    const id = req.params.id
+    const word = req.body
+    console.log(word)
+    db.updateWord(id, word)
+    .then(results => {
+        console.log('routes', results)
+        res.json({updatedRows: results})
+        return null
+    })
+    .catch(err => {
+        console.log(err)
+        res.status(500).json({message: 'SHEEEITTT'})
+      })
+})
+
 module.exports = router

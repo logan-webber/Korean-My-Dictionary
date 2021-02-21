@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 
-import { addTheWords, fetchWords } from '../actions/index'
+import { addTheWords, fetchWords, updateTheWords } from '../actions/index'
 
 function AddWord(props) {
 
@@ -10,7 +10,7 @@ function AddWord(props) {
         meaning: ''
     })
 
-    const handleSubmit = (e) => {
+    const handleAddSubmit = (e) => {
         e.preventDefault()
         props.dispatch(addTheWords({ word: formData.word, meaning: formData.meaning }))
         console.log('submitted data')
@@ -27,10 +27,10 @@ function AddWord(props) {
             }
         })
     }
-    
+
     return (
         <>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleAddSubmit}>
                 <label>
                     <input className='new-word' type='text' name='word' placeholder='New word' onChange={(e) => handleChange(e)} />
                     <input className='new-word' type='text' name='meaning' placeholder='New meaning' onChange={(e) => handleChange(e)} />
