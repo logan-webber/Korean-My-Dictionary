@@ -16,3 +16,10 @@ export function addWords (words) {
         return res.body
     })
 }
+
+export function deleteWords (id) {
+    return request.delete(rootUrl + '/words/' + id)
+    .then(res => {
+        return res.body
+    })
+}

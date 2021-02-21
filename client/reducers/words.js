@@ -1,4 +1,4 @@
-import { SET_WORDS, ADD_WORDS } from '../actions'
+import { SET_WORDS, ADD_WORDS, DELETE_WORDS } from '../actions'
 
 const intialState = []
 
@@ -9,6 +9,8 @@ const reducer = (state = intialState, action) => {
             return action.words
         case ADD_WORDS:
             return [...state, {id: action.id, word: action.word, meaning: action.meaning}]
+        case DELETE_WORDS:
+            return state.filter(word => word.id !== action.id)
         default:
             return state
     }

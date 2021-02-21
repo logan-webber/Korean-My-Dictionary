@@ -1,12 +1,23 @@
-import { getWords, addWords } from '../apis/words'
+import { getWords, addWords, deleteWords } from '../apis/words'
 
 export const SET_WORDS = 'SET_WORDS'
 export const ADD_WORDS = 'ADD_WORDS'
+export const DELETE_WORDS = 'DELETE_WORDS'
 
 export function setWords(words) {
   return {
     type: SET_WORDS,
     words: words
+  }
+}
+
+export function fetchWords () {
+  return dispatch => {
+    return getWords()
+    .then(words => {
+      dispatch(setWords(words))
+      return null
+    })
   }
 }
 
@@ -20,12 +31,14 @@ export function addTheWords(words){
   }
 }
 
-export function fetchWords () {
+export function deleteTheWords(id){
   return dispatch => {
-    return getWords()
-    .then(words => {
-      dispatch(setWords(words))
+    return deleteWords(id)
+    .then(() => {
+      dispatch(fetchWords())
       return null
     })
   }
 }
+
+

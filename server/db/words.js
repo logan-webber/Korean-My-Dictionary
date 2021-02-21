@@ -10,7 +10,16 @@ function addWord (word, db = connection) {
     .then(ids => ids[0])
 }
 
+function deleteWord (id, db = connection) {
+    return db('words').delete().where('id', id)
+    .then(rowCount => {
+        console.log(rowCount)
+        return rowCount
+    })
+}
+
 module.exports = {
     getWord,
     addWord,
+    deleteWord
 }

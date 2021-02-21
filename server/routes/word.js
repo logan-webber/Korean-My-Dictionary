@@ -32,4 +32,18 @@ router.post('/', (req, res) => {
     })
 })
 
+router.delete('/:id', (req, res) => {
+    const id = req.params.id
+    db.deleteWord(id)
+    .then(results => {
+        console.log('routes', results)
+        res.json({deletedRows: results})
+        return null
+    })
+    .catch(err => {
+        console.log(err)
+        res.status(500).json({message: 'SHEEEITTT'})
+      })
+})
+
 module.exports = router
