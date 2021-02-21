@@ -17,6 +17,8 @@ function AddWord(props) {
     }
 
     const handleChange = (e) => {
+        //this function below keeps the event around so that the handlechange func can use it
+        // e.persist()
         setFormData(currentFormData => {
             console.log(e)
             return {
