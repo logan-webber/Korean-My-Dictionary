@@ -41,7 +41,7 @@ function ListOfWords (props) {
 
     return(
         <>
-            <ul>
+            <ul className='list'>
                 {props.words.map(wrd => 
                 <li key={wrd.id}>
                     {wrd.word}

@@ -18,6 +18,7 @@ function AddWord(props) {
 
     const handleChange = (e) => {
         //this function below keeps the event around so that the handlechange func can use it
+        //I ended up not needing to use it since my packages were out of date and after an npm i it worked again
         // e.persist()
         setFormData(currentFormData => {
             console.log(e)
@@ -30,13 +31,15 @@ function AddWord(props) {
 
     return (
         <>
-            <form onSubmit={handleAddSubmit}>
-                <label>
-                    <input className='new-word' type='text' name='word' placeholder='New word' onChange={(e) => handleChange(e)} />
-                    <input className='new-word' type='text' name='meaning' placeholder='New meaning' onChange={(e) => handleChange(e)} />
-                </label>
-                <button type='submit'>Add the new word</button>
-            </form>
+				<div className='add-word'>
+                <form  onSubmit={handleAddSubmit}>
+                    <label  >
+                        <input className='new-word' type='text' name='word' placeholder='New word' onChange={(e) => handleChange(e)} />
+                        <input className='new-word' type='text' name='meaning' placeholder='New meaning' onChange={(e) => handleChange(e)} />
+                    </label>
+                    <button type='submit'>Add the new word</button>
+                </form>
+            </div>
         </>
     )
 }
