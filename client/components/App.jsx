@@ -1,11 +1,12 @@
 import React from 'react'
 import AddWord from './AddWord'
 import ListOfWords from './ListOfWords'
+import Home from './Home'
 
 function App () {
   return(
     <>
-      <h1>Here are the words</h1>
+      <Home/>
       <ListOfWords/>
       <AddWord/>
     </>
