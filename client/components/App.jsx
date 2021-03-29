@@ -2,7 +2,7 @@ import React from 'react'
 import AddWord from './AddWord'
 import ListOfWords from './ListOfWords'
 import Home from './Home'
-import { Route, Router } from 'react-router-dom'
+import { HashRouter as Router, Route } from 'react-router-dom'
 
 function App() {
   return (
