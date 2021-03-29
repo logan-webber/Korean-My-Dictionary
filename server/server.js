@@ -9,5 +9,6 @@ server.use(express.json())
 server.use(express.static(path.join(__dirname, 'public')))
 
 server.use('/api/v1/words', wordsRoutes)
+server.use('/api/v1/users', userRoutes)
 
 module.exports = server
