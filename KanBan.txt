@@ -1,0 +1,26 @@
+Ideas:
+Add auth so that each user can store their own data
+Add Different Languages and make them selectable
+
+
+
+
+
+Todo:
+
+
+
+
+
+
+
+
+Working on:
+
+
+
+
+
+
+
+Completed:
