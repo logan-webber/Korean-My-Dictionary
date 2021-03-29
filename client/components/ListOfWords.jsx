@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 import { fetchWords, deleteTheWords, updateTheWords } from '../actions/index'
 
@@ -59,6 +60,7 @@ function ListOfWords (props) {
                     </form>
                 </li>)}
             </ul>
+            <Link to='/'>Back</Link>
         </>
     )
 }
