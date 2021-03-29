@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
+import { Link, useHistory } from 'react-router-dom'
 
 import { addTheWords, fetchWords, updateTheWords } from '../actions/index'
 
@@ -14,6 +15,7 @@ function AddWord(props) {
         e.preventDefault()
         props.dispatch(addTheWords({ word: formData.word, meaning: formData.meaning }))
         console.log('submitted data')
+        routeChange()
     }
 
     const handleChange = (e) => {
@@ -29,6 +31,13 @@ function AddWord(props) {
         })
     }
 
+    const history = useHistory()
+
+    const routeChange = () => {
+        let path = `/listofwords`
+        history.push(path)
+    }
+
     return (
         <>
 				<div className='add-word'>
@@ -40,6 +49,7 @@ function AddWord(props) {
                     <button type='submit'>Add the new word</button>
                 </form>
             </div>
+            <Link to='/'>Back</Link>
         </>
     )
 }
