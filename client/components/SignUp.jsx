@@ -67,8 +67,7 @@ function SignUp(props) {
 				<label className="sign-up">Confirm Password
             <input required className="sign-up" placeholder="Confirm Password" type="password" name="confirm_password" autoComplete="new-password" onChange={handleChange} value={formData.confirm_password} />
 				</label>
-
-
+				<button type='submit'>Done</button>
 			</form>
 		</>
 	)

@@ -63,6 +63,7 @@ function Login(props) {
 						onChange={handleChange}
 					/>
 				</label>
+				<button type='submit'>Done</button>
 			</form>
 		</>
 	)
