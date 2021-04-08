@@ -17,6 +17,12 @@ function Home() {
 				<br />
 				<Link to='/addword'>Click here to add a new word</Link>
 			</div>
+			<div className='link'>
+				<Link to='/signup'>Click here to sign up</Link>
+			</div>
+			<div className='link'>
+				<Link to='/login'>Click here to login</Link>
+			</div>
 		</>
 	)
 }
