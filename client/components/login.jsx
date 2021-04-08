@@ -37,7 +37,7 @@ function Login(props) {
 			<form onSubmit={handleSubmit}>
 			<hr/>
 				{auth.errorMessage && (
-					<span className="has-text-danger is-large">{auth.errorMessage}</span>
+					<span className="error">{auth.errorMessage}</span>
 				)}
 				<label>Username
 					<input
