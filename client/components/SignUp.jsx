@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
+import { Link, Route } from 'react-router-dom'
 
 import { loginError, registerUserRequest } from '../actions/auth'
 
@@ -69,6 +70,7 @@ function SignUp(props) {
 				</label>
 				<button type='submit'>Done</button>
 			</form>
+			<Link to='/'>back</Link>
 		</>
 	)
 }

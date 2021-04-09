@@ -65,6 +65,7 @@ function Login(props) {
 				</label>
 				<button type='submit'>Done</button>
 			</form>
+			<Link to='/'>back</Link>
 		</>
 	)
 }
