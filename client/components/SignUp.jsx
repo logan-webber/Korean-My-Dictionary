@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
-import { Link, Route } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 import { loginError, registerUserRequest } from '../actions/auth'
 
@@ -29,12 +29,20 @@ function SignUp(props) {
 		})
 	}
 
+	const history = useHistory()
+
+	const routeChange = () => {
+		let path = `/listofwords`
+		history.push(path)
+	}
+
+
 	const handleSubmit = (e) => {
 		e.preventDefault()
 		e.target.reset()
 		let { username, password, confirm_password, first_name, last_name } = formData
 		if (confirm_password != password) return props.dispatch(loginError("Passwords don't match"))
-		const confirmSuccess = () => { props.history.push('/home') }
+		const confirmSuccess = () => { props.history.push('/') }
 		props.dispatch(registerUserRequest({ username, password, first_name, last_name, time: new Date() }, confirmSuccess))
 	}
 	return (
