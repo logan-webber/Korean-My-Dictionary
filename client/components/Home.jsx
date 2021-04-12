@@ -1,6 +1,9 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link} from 'react-router-dom'
 import { connect } from 'react-redux'
+
+import { logoutUser } from '../actions/auth'
+
 
 
 function Home(props) {
@@ -20,6 +23,7 @@ function Home(props) {
 						<br />
 						<Link to='/addword'>Click here to add a new word</Link>
 					</div>
+				<Link to='/' onClick={() => logoutUser()}>Logout</Link>
 				</>
 			}
 			{!props.auth.isAuthenticated &&
