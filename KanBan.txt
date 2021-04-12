@@ -8,8 +8,9 @@ Todo:
 
 
 Working on:
-Add auth so that each user can store their own data
+
 
 
 
 Completed:
+Add auth so that each user can store their own data
