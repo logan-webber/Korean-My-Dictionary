@@ -1,32 +1,40 @@
 import React from 'react'
 import { Link} from 'react-router-dom'
 import { connect } from 'react-redux'
-
 import { logoutUser } from '../actions/auth'
 
+function Home({auth, logout}) {
 
+	// const [burgerVisible, setBurgerVisible] = useState(false)
 
-function Home(props) {
+	// const toggleBurger = () => {
+	// 	setBurgerVisible(currentBurgerState => {
+	// 		return !currentBurgerState
+	// 	})
+	// }
 
 
 	return (
 		<>
 			<h1 className='title'>Welcome to My Dictionary! </h1>
 			<h2 className='title'>Please select one of the following options</h2>
-			{props.auth.isAuthenticated &&
+			{auth.isAuthenticated &&
 				<>
 					<div className='link'>
-						<br />
+						<br/>
 						<Link to='/listofwords'>Click here to view your words</Link>
 					</div>
 					<div className='link'>
-						<br />
+						<br/>
 						<Link to='/addword'>Click here to add a new word</Link>
 					</div>
-				<Link to='/' onClick={() => logoutUser()}>Logout</Link>
+					<div className='link'>
+						<br/>
+					<Link to='/' onClick={() => logout()}>Logout</Link>
+					</div>
 				</>
 			}
-			{!props.auth.isAuthenticated &&
+			{!auth.isAuthenticated &&
 				<>
 					<div className='link'>
 						<br />
@@ -36,13 +44,23 @@ function Home(props) {
 						<br />
 						<Link to='/login'>Click here to login</Link>
 					</div>
-					<p>logout</p>
 				</>
 
 			}
 		</>
 	)
 }
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+	return {
+		logout: () => {
+			const confirmSuccess = () => ownProps.history.push('/')
+			dispatch(logoutUser(confirmSuccess))
+		},
+		fetchHouses: () => dispatch(fetchProperties())
+	}
+}
+
 
 function mapStateToProps(globalState) {
 	return {
@@ -51,4 +69,4 @@ function mapStateToProps(globalState) {
 	}
 }
 
-export default connect(mapStateToProps)(Home)
+export default connect(mapStateToProps, mapDispatchToProps)(Home)

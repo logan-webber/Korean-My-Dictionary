@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
-import { Link, useHistory } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import { loginError, registerUserRequest } from '../actions/auth'
 
@@ -29,12 +29,12 @@ function SignUp(props) {
 		})
 	}
 
-	const history = useHistory()
+	// const history = useHistory()
 
-	const routeChange = () => {
-		let path = `/listofwords`
-		history.push(path)
-	}
+	// const routeChange = () => {
+	// 	let path = '/listofwords'
+	// 	history.push(path)
+	// }
 
 
 	const handleSubmit = (e) => {
@@ -78,7 +78,7 @@ function SignUp(props) {
 				</label>
 				<button type='submit'>Done</button>
 			</form>
-			<Link to='/'>back</Link>
+			<Link to='/' replace >back</Link>
 		</>
 	)
 }

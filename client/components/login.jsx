@@ -30,7 +30,6 @@ function Login(props) {
 
 
 	const handleSubmit = (e) => {
-
 		e.preventDefault()
 		let { username, password } = formData
 		const confirmSuccess = () => {
@@ -73,7 +72,7 @@ function Login(props) {
 				</label>
 				<button type='submit'>Done</button>
 			</form>
-			<Link to='/'>back</Link>
+			<Link to='/' replace >back</Link>
 		</>
 	)
 }
