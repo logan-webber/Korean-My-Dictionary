@@ -5,15 +5,6 @@ import { logoutUser } from '../actions/auth'
 
 function Home({auth, logout}) {
 
-	// const [burgerVisible, setBurgerVisible] = useState(false)
-
-	// const toggleBurger = () => {
-	// 	setBurgerVisible(currentBurgerState => {
-	// 		return !currentBurgerState
-	// 	})
-	// }
-
-
 	return (
 		<>
 			<h1 className='title'>Welcome to My Dictionary! </h1>
