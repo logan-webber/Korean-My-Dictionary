@@ -48,6 +48,10 @@ function ListOfWords (props) {
                     {wrd.word}
                     <br/>
                     {wrd.meaning}
+                    <br />
+                    {wrd.user_id}
+                    <br />
+                    {wrd.language_id}
                     <button type='button' onClick={() => deleteOneWord(wrd.id)}>
                         Delete
                     </button>
