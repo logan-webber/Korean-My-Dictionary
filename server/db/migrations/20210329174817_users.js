@@ -7,8 +7,8 @@ exports.up = function(knex) {
         table.string('password')
         table.boolean('admin')
         table.bigint('time')
-        table.integer('word_id')
-        table.integer('language_id')
+        // table.integer('word_id')
+        // table.integer('language_id')
     })
 };
 
