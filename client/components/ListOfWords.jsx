@@ -67,7 +67,8 @@ function ListOfWords (props) {
 
 function mapStateToProps(globalState){
     return{
-        words: globalState.words
+        words: globalState.words,
+        languages: global.languages
     }
 }
 
