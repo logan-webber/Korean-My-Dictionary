@@ -5,7 +5,7 @@ const intialState = []
 const reducer = (state = intialState, action) => {
     switch (action.type){
         case SET_WORDS:
-            console.log(action.words)
+            // console.log(action.words)
             return action.words
         case ADD_WORDS:
             return [...state, {id: action.id, word: action.word, meaning: action.meaning}]

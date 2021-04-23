@@ -3,13 +3,9 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 import { fetchWords, deleteTheWords, updateTheWords } from '../actions/index'
-// import { fetchLanguages } from '../actions/languages'
+import { fetchLanguages } from '../actions/languages'
 
 function ListOfWords(props) {
-
-	// useEffect((
-	// 	fetchLanguages()
-	// ), [])
 
 	const [formData, setFormData] = useState({
 		word: '',
@@ -18,6 +14,7 @@ function ListOfWords(props) {
 
 	useEffect(() => {
 		props.dispatch(fetchWords())
+		props.dispatch(fetchLanguages())
 	}, [])
 
 	const deleteOneWord = (id) => {
@@ -55,6 +52,7 @@ function ListOfWords(props) {
 						{wrd.meaning}
 						<br />
 						{props.languages.language}
+						{/* {console.log(props)} */}
 						<button type='button' onClick={() => deleteOneWord(wrd.id)}>
 							Delete
                     </button>
