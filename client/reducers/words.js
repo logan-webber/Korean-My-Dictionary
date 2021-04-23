@@ -1,4 +1,4 @@
-import { SET_WORDS, ADD_WORDS, DELETE_WORDS, UPDATE_WORDS } from '../actions'
+import { SET_WORDS, ADD_WORDS, DELETE_WORDS, UPDATE_WORDS } from '../actions/index'
 
 const intialState = []
 

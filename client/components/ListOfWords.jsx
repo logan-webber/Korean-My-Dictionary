@@ -27,9 +27,9 @@ function ListOfWords(props) {
 
 	const handleUpdateSubmit = (id, e) => {
 		e.preventDefault()
-		console.log(e)
+		// console.log(e)
 		props.dispatch(updateTheWords(id, { word: formData.word, meaning: formData.meaning }))
-		console.log('updated data')
+		// console.log('updated data')
 	}
 
 	const handleChange = (e) => {
@@ -65,15 +65,16 @@ function ListOfWords(props) {
 						</form>
 					</li>)}
 			</ul>
+			{console.log(props)}
 			<Link to='/'>Back</Link>
 		</>
 	)
 }
 
-function mapStateToProps(globalState) {
+function mapStateToProps({words, languages}) {
 	return {
-		words: globalState.words,
-		languages: globalState.languages
+		words,
+		languages
 	}
 }
 
