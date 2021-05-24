@@ -14,6 +14,10 @@ function ListOfWords(props) {
 
 	useEffect(() => {
 		props.dispatch(fetchWords())
+		// This function below doesnt appear to do anything atm I have a function below which
+		// does what all of the lanuage redux stuff was trying to do but mich simplier which
+		// is rad since I have been stuck on this problem for far too long. I will work on a fix
+		//sometime in the future
 		props.dispatch(fetchLanguages())
 	}, [])
 
@@ -52,38 +56,49 @@ function ListOfWords(props) {
 
 	return (
 		<>
-			<ul className='list'>
-				{props.words.map(wrd =>
-					<li key={wrd.id}>
-						{wrd.word}
-						<br/>
-						{wrd.meaning}
-						<br/>
-						{console.log(props)}
-						{findLangauge(wrd.language_id)}
-						<br/>
-						<button type='button' onClick={() => deleteOneWord(wrd.id)}>
-							Delete
-                    </button>
-						<form onSubmit={(e) => handleUpdateSubmit(wrd.id, e)}>
-							<label>
-								<input className='new-word' type='text' name='word' placeholder='edit word' onChange={(e) => handleChange(e)} />
-								<input className='new-word' type='text' name='meaning' placeholder='edit meaning' onChange={(e) => handleChange(e)} />
-							</label>
-							<button type='submit'>Update word</button>
-						</form>
-					</li>)}
-			</ul>
-			{console.log(props)}
-			<Link to='/'>Back</Link>
+			{auth.isAuthenticated &&
+			<>
+				<ul className='list'>
+					{props.words.map(wrd =>
+						<li key={wrd.id}>
+							{wrd.word}
+							<br/>
+							{wrd.meaning}
+							<br/>
+							{console.log(props)}
+							{findLangauge(wrd.language_id)}
+							<br/>
+							<button type='button' onClick={() => deleteOneWord(wrd.id)}>
+								Delete
+											</button>
+							<form onSubmit={(e) => handleUpdateSubmit(wrd.id, e)}>
+								<label>
+									<input className='new-word' type='text' name='word' placeholder='edit word' onChange={(e) => handleChange(e)} />
+									<input className='new-word' type='text' name='meaning' placeholder='edit meaning' onChange={(e) => handleChange(e)} />
+								</label>
+								<button type='submit'>Update word</button>
+							</form>
+						</li>)}
+				</ul>
+				<Link to='/'>Back</Link>
+			</>
+			}
+			{!auth.isAuthenticated &&
+			<>
+				<h2>You are not logged in</h2>
+				<Link to='/login'>Click here to Login</Link>
+			</>
+			}
+			
 		</>
 	)
 }
 
-function mapStateToProps({words, languages}) {
+function mapStateToProps({words, languages, auth}) {
 	return {
 		words,
-		languages
+		languages,
+		auth
 	}
 }
 
