@@ -48,11 +48,13 @@ function ListOfWords(props) {
 				{props.words.map(wrd =>
 					<li key={wrd.id}>
 						{wrd.word}
-						<br />
+						<br/>
 						{wrd.meaning}
-						<br />
-						{props.languages.language}
+						<br/>
+						{console.log(props)}
+						{wrd.language_id}
 						{/* {console.log(props)} */}
+						<br/>
 						<button type='button' onClick={() => deleteOneWord(wrd.id)}>
 							Delete
                     </button>
