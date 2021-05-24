@@ -42,6 +42,14 @@ function ListOfWords(props) {
 		})
 	}
 
+	const findLangauge = (id) => {
+		if(id === 1){
+			return 'English'
+		} else if (id === 2){
+			return 'Korean'
+		}
+	}
+
 	return (
 		<>
 			<ul className='list'>
@@ -52,8 +60,7 @@ function ListOfWords(props) {
 						{wrd.meaning}
 						<br/>
 						{console.log(props)}
-						{wrd.language_id}
-						{/* {console.log(props)} */}
+						{findLangauge(wrd.language_id)}
 						<br/>
 						<button type='button' onClick={() => deleteOneWord(wrd.id)}>
 							Delete
