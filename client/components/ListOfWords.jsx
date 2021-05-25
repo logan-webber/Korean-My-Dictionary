@@ -47,6 +47,8 @@ function ListOfWords(props, auth) {
 		})
 	}
 
+	// This solution is a bit hard coded but it works for me since I am not planning on having 10000 languages rather like 20
+	// mabye so I will put this in its on file if I'm feeling lazy or I could create a better solution in the future.
 	const findLangauge = (id) => {
 		if(id === 1){
 			return 'English'
@@ -56,20 +58,28 @@ function ListOfWords(props, auth) {
 	}
 	console.log(props.users)
 
-	const findWordsForEachUser = (userIdByWord) => {
+	const findWordsForEachUser = (userIdByWord, data) => {
 		if(userIdByWord == props.users.id){
-			return userIdByWord
+			return {word: data.word,
+							meaning: data.meaning,
+							language_id: findLangauge(data.language_id)
+			}
 		}
 	}
+
+	// findWordsForEachUser(props.words.user_id, props.words)
+
 
 	return (
 		<>
 
 			{!auth.isAuthenticated &&
 			<>
+				
 				<ul className='list'>
 					{props.words.map(wrd =>
 						<li key={wrd.id}>
+							{/* {findWordsForEachUser(wrd.user_id, wrd)} */}
 							{wrd.word}
 							<br/>
 							{wrd.meaning}
