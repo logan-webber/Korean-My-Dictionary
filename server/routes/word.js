@@ -2,8 +2,8 @@ const express = require('express')
 const db = require('../db/words')
 const router = express.Router()
 
-router.get('/', (req, res) => {
-    db.getWord()
+router.get('/:id', (req, res) => {
+    db.getTheRightUser(id)
     .then(results => {
         console.log(results)
         res.json(results)
@@ -14,6 +14,20 @@ router.get('/', (req, res) => {
             res.status(500).json({ message: 'Somthing went wrong' })
         })
 })
+
+// This route may not be needed but I wrote it for now just in case
+// router.get('/:id', (req, res) => {
+//     getTheRightUser(id)
+//     .then(results => {
+//         console.log(results)
+//         res.json(results)
+//         return null
+//     })
+//      .catch(err => {
+//             console.log(err)
+//             res.status(500).json({ message: 'Somthing went wrong' })
+//         })
+// })
 
 router.post('/', (req, res) => {
     const word = {
