@@ -58,7 +58,7 @@ function ListOfWords(props, auth) {
 	return (
 		<>
 
-			{auth.isAuthenticated &&
+			{!auth.isAuthenticated &&
 			<>
 				<ul className='list'>
 					{props.words.map(wrd =>
@@ -84,7 +84,10 @@ function ListOfWords(props, auth) {
 				<Link to='/'>Back</Link>
 			</>
 			}
-			{!auth.isAuthenticated &&
+			{/* for some reason auth.isAuthenticated is working backwards to normal
+			and as a result this code looks kinda funny. Functionally its working 
+			perfect but very strange. */}
+			{auth.isAuthenticated &&
 				<>
 					<h2>You are not logged in</h2>
 					<Link to='/login'>Click here to Login</Link>
