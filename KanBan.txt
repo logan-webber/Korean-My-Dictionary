@@ -1,6 +1,9 @@
 Ideas:
+Add buttons for features to appear on screen so its less clunky
+Make all pages more aesthetic
+Add filter for languages
 
-Add Different Languages and make them selectable
+
 
 
 Todo:
@@ -8,9 +11,9 @@ Todo:
 
 
 Working on:
-
+Bind users to their own data so they only get their own words
 
 
 
 Completed:
-Add auth so that each user can store their own data
+Add Different Languages and make them selectable
