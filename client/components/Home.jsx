@@ -29,11 +29,12 @@ function Home({auth, logout}) {
 				<>
 					<div className='link'>
 						<br />
-						<Link to='/signup'>Click here to sign up</Link>
+						<Link to='/login'>Click here to login</Link>
+		
 					</div>
 					<div className='link'>
 						<br />
-						<Link to='/login'>Click here to login</Link>
+						<Link to='/signup'>Click here to sign up</Link>
 					</div>
 				</>
 
