@@ -4,8 +4,9 @@ import { Link } from 'react-router-dom'
 
 import { fetchWords, deleteTheWords, updateTheWords } from '../actions/index'
 import { fetchLanguages } from '../actions/languages'
+// import { receiveLogin } from '../actions/auth'
 
-function ListOfWords(props) {
+function ListOfWords(props, auth) {
 
 	const [formData, setFormData] = useState({
 		word: '',
@@ -56,6 +57,7 @@ function ListOfWords(props) {
 
 	return (
 		<>
+
 			{auth.isAuthenticated &&
 			<>
 				<ul className='list'>
@@ -65,7 +67,6 @@ function ListOfWords(props) {
 							<br/>
 							{wrd.meaning}
 							<br/>
-							{console.log(props)}
 							{findLangauge(wrd.language_id)}
 							<br/>
 							<button type='button' onClick={() => deleteOneWord(wrd.id)}>
@@ -84,21 +85,22 @@ function ListOfWords(props) {
 			</>
 			}
 			{!auth.isAuthenticated &&
-			<>
-				<h2>You are not logged in</h2>
-				<Link to='/login'>Click here to Login</Link>
-			</>
+				<>
+					<h2>You are not logged in</h2>
+					<Link to='/login'>Click here to Login</Link>
+				</>
+
 			}
-			
+		
 		</>
 	)
 }
 
-function mapStateToProps({words, languages, auth}) {
+function mapStateToProps(globalState) {
 	return {
-		words,
-		languages,
-		auth
+		words: globalState.words,
+		languages: globalState.languages,
+		auth: globalState.auth
 	}
 }
 
