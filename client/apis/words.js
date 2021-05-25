@@ -9,6 +9,13 @@ export function getWords () {
     })
 }
 
+// export function getWordByUserId (id) {
+//     return request.get(rootUrl + '/words/' + id)
+//     .then(res => {
+//         return res.body
+//     })
+// }
+
 export function addWords (words) {
     return request.post(rootUrl + '/words')
     .send(words)

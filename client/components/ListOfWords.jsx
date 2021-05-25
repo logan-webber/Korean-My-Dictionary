@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 
 import { fetchWords, deleteTheWords, updateTheWords } from '../actions/index'
 import { fetchLanguages } from '../actions/languages'
+import { fetchUsers } from '../actions/users'
 // import { receiveLogin } from '../actions/auth'
 
 function ListOfWords(props, auth) {
@@ -14,11 +15,10 @@ function ListOfWords(props, auth) {
 	})
 
 	useEffect(() => {
+		// These functions are what pull the data to this page so I can use it. If these are not here I cannot use the data
+		// from the db
 		props.dispatch(fetchWords())
-		// This function below doesnt appear to do anything atm I have a function below which
-		// does what all of the lanuage redux stuff was trying to do but mich simplier which
-		// is rad since I have been stuck on this problem for far too long. I will work on a fix
-		//sometime in the future
+		props.dispatch(fetchUsers())
 		props.dispatch(fetchLanguages())
 	}, [])
 
@@ -52,6 +52,13 @@ function ListOfWords(props, auth) {
 			return 'English'
 		} else if (id === 2){
 			return 'Korean'
+		}
+	}
+	console.log(props.users)
+
+	const findWordsForEachUser = (userIdByWord) => {
+		if(userIdByWord == props.users.id){
+			return userIdByWord
 		}
 	}
 
@@ -103,6 +110,7 @@ function mapStateToProps(globalState) {
 	return {
 		words: globalState.words,
 		languages: globalState.languages,
+		users: globalState.users,
 		auth: globalState.auth
 	}
 }
