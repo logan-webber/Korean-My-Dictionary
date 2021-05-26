@@ -56,25 +56,21 @@ function ListOfWords(props, auth) {
 			return 'Korean'
 		}
 	}
-	// console.log(props.users)
-	// console.log(auth.user.id)
 
 	const findWordsForEachUser = (userId, data) => {
-		if(userId == props.users.id){
-			return [data.word, data.meaning, findLangauge(data.language_id)]
-			// {word: data.word,
-			// 				meaning: data.meaning,
-			// 				language_id: findLangauge(data.language_id)
-			// }
-			
+		if (userId == props.auth.user.id){
+			// return [data.word, data.meaning, findLangauge(data.language_id)]
+			return {word: data.word,
+					meaning: data.meaning,
+					language_id: findLangauge(data.language_id)
+			}
 		}
-		console.log(props.users.id)
 	}
 
-		console.log(props.users.id)
+		
+		console.log(props.auth.user.id)
 
-
-	// findWordsForEachUser(props.words.user_id, props.words)
+	
 
 
 	return (
