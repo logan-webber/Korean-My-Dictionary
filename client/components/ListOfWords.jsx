@@ -50,59 +50,47 @@ function ListOfWords(props, auth) {
 	// This solution is a bit hard coded but it works for me since I am not planning on having 10000 languages rather like 20
 	// mabye so I will put this in its on file if I'm feeling lazy or I could create a better solution in the future.
 	const findLangauge = (id) => {
-		if(id === 1){
+		if (id === 1) {
 			return 'English'
-		} else if (id === 2){
+		} else if (id === 2) {
 			return 'Korean'
 		}
 	}
 
+	// This function ensure that users only see their own data and not every entry into the words table
 	const findWordsForEachUser = (userId, data) => {
-		if (userId == props.auth.user.id){
-			// return [data.word, data.meaning, findLangauge(data.language_id)]
-			return {word: data.word,
-					meaning: data.meaning,
-					language_id: findLangauge(data.language_id)
-			}
+		if (userId == props.auth.user.id) {
+			return[
+							data.word, <br/>,
+							data.meaning, <br/>,
+							findLangauge(data.language_id), <br/>
+						]
 		}
 	}
-
-		
-		console.log(props.auth.user.id)
-
-	
-
 
 	return (
 		<>
 
 			{!auth.isAuthenticated &&
-			<>
-				
-				<ul className='list'>
-					{props.words.map(wrd =>
-						<li key={wrd.id}>
-							{findWordsForEachUser(wrd.user_id, wrd)}
-							{/* {wrd.word}
-							<br/>
-							{wrd.meaning}
-							<br/>
-							{findLangauge(wrd.language_id)} */}
-							<br/>
-							<button type='button' onClick={() => deleteOneWord(wrd.id)}>
-								Delete
+				<>
+					<ul className='list'>
+						{props.words.map(wrd =>
+							<li key={wrd.id}>
+								{findWordsForEachUser(wrd.user_id, wrd)}
+								<button type='button' onClick={() => deleteOneWord(wrd.id)}>
+									Delete
 											</button>
-							<form onSubmit={(e) => handleUpdateSubmit(wrd.id, e)}>
-								<label>
-									<input className='new-word' type='text' name='word' placeholder='edit word' onChange={(e) => handleChange(e)} />
-									<input className='new-word' type='text' name='meaning' placeholder='edit meaning' onChange={(e) => handleChange(e)} />
-								</label>
-								<button type='submit'>Update word</button>
-							</form>
-						</li>)}
-				</ul>
-				<Link to='/'>Back</Link>
-			</>
+								<form onSubmit={(e) => handleUpdateSubmit(wrd.id, e)}>
+									<label>
+										<input className='new-word' type='text' name='word' placeholder='edit word' onChange={(e) => handleChange(e)} />
+										<input className='new-word' type='text' name='meaning' placeholder='edit meaning' onChange={(e) => handleChange(e)} />
+									</label>
+									<button type='submit'>Update word</button>
+								</form>
+							</li>)}
+					</ul>
+					<Link to='/'>Back</Link>
+				</>
 			}
 			{/* For some reason auth.isAuthenticated is working backwards to normal
 			and as a result this code looks kinda funny. Functionally its working 
@@ -114,7 +102,7 @@ function ListOfWords(props, auth) {
 				</>
 
 			}
-		
+
 		</>
 	)
 }
