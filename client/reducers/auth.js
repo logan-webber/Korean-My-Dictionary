@@ -1,4 +1,4 @@
-import { ids } from "webpack"
+// import { ids } from "webpack"
 
 const initialState = {
     isFetching: false,
@@ -25,13 +25,13 @@ export default function auth(state = initialState, action) {
                 isAuthenticated: true,
                 user: action.user
             }
-        case 'USER_ID':
-            return {
-                ...state,
-                isFetching: false,
-                isAuthenticated: true,
-                action: id.action
-            }
+        // case 'USER_ID':
+        //     return {
+        //         ...state,
+        //         isFetching: false,
+        //         isAuthenticated: true,
+        //         action: id.action
+        //     }
         case 'LOGIN_FAILURE':
             return {
                 ...state,
