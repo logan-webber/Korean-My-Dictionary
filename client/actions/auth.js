@@ -18,6 +18,15 @@ export function receiveLogin(user) {
     }
 }
 
+export function passIdToState(id) {
+    return {
+        type: 'USER_ID',
+        isFetching: false,
+        isAuthenticated: true,
+        id
+    }
+}
+
 export function loginError(message) {
     return {
         type: 'LOGIN_FAILURE',
@@ -39,6 +48,7 @@ export function loginUser(creds, confirmSuccess) {
                 dispatch(loginError(err))
             })
     }
+    
 }
 
 export function requestLogout() {

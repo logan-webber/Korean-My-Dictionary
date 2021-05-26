@@ -56,16 +56,23 @@ function ListOfWords(props, auth) {
 			return 'Korean'
 		}
 	}
-	console.log(props.users)
+	// console.log(props.users)
+	// console.log(auth.user.id)
 
-	const findWordsForEachUser = (userIdByWord, data) => {
-		if(userIdByWord == props.users.id){
-			return {word: data.word,
-							meaning: data.meaning,
-							language_id: findLangauge(data.language_id)
-			}
+	const findWordsForEachUser = (userId, data) => {
+		if(userId == props.users.id){
+			return [data.word, data.meaning, findLangauge(data.language_id)]
+			// {word: data.word,
+			// 				meaning: data.meaning,
+			// 				language_id: findLangauge(data.language_id)
+			// }
+			
 		}
+		console.log(props.users.id)
 	}
+
+		console.log(props.users.id)
+
 
 	// findWordsForEachUser(props.words.user_id, props.words)
 
@@ -79,12 +86,12 @@ function ListOfWords(props, auth) {
 				<ul className='list'>
 					{props.words.map(wrd =>
 						<li key={wrd.id}>
-							{/* {findWordsForEachUser(wrd.user_id, wrd)} */}
-							{wrd.word}
+							{findWordsForEachUser(wrd.user_id, wrd)}
+							{/* {wrd.word}
 							<br/>
 							{wrd.meaning}
 							<br/>
-							{findLangauge(wrd.language_id)}
+							{findLangauge(wrd.language_id)} */}
 							<br/>
 							<button type='button' onClick={() => deleteOneWord(wrd.id)}>
 								Delete
@@ -101,7 +108,7 @@ function ListOfWords(props, auth) {
 				<Link to='/'>Back</Link>
 			</>
 			}
-			{/* for some reason auth.isAuthenticated is working backwards to normal
+			{/* For some reason auth.isAuthenticated is working backwards to normal
 			and as a result this code looks kinda funny. Functionally its working 
 			perfect but very strange. */}
 			{auth.isAuthenticated &&
