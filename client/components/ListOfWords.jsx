@@ -32,9 +32,7 @@ function ListOfWords(props, auth) {
 
 	const handleUpdateSubmit = (id, e) => {
 		e.preventDefault()
-		// console.log(e)
 		props.dispatch(updateTheWords(id, { word: formData.word, meaning: formData.meaning }))
-		// console.log('updated data')
 	}
 
 	const handleChange = (e) => {
@@ -60,13 +58,22 @@ function ListOfWords(props, auth) {
 	// This function ensure that users only see their own data and not every entry into the words table
 	const findWordsForEachUser = (userId, data) => {
 		if (userId == props.auth.user.id) {
-			return[
-							data.word, <br/>,
-							data.meaning, <br/>,
-							findLangauge(data.language_id), <br/>
-						]
+			return [
+				data.word, <br />,
+				data.meaning, <br />,
+				findLangauge(data.language_id), <br />
+			]
 		}
 	}
+
+	// const renderFormWithCorrectId = (id) => {
+	// 	if (id == props.auth.user.id) {
+	// 			<label>
+	// 				<input className='new-word' type='text' name='word' placeholder='edit word' onChange={(e) => handleChange(e)} />
+	// 				<input className='new-word' type='text' name='meaning' placeholder='edit meaning' onChange={(e) => handleChange(e)} />
+	// 			</label>
+	// 	}
+	// }
 
 	return (
 		<>
@@ -81,11 +88,12 @@ function ListOfWords(props, auth) {
 									Delete
 											</button>
 								<form onSubmit={(e) => handleUpdateSubmit(wrd.id, e)}>
+									{renderFormWithCorrectId(wrd.user_id)}
 									<label>
 										<input className='new-word' type='text' name='word' placeholder='edit word' onChange={(e) => handleChange(e)} />
 										<input className='new-word' type='text' name='meaning' placeholder='edit meaning' onChange={(e) => handleChange(e)} />
 									</label>
-									<button type='submit'>Update word</button>
+									<button type='submit'>Update word</button> 
 								</form>
 							</li>)}
 					</ul>
