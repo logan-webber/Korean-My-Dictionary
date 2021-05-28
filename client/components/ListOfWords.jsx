@@ -24,10 +24,10 @@ function ListOfWords(props, auth) {
 
 	const deleteOneWord = (id, userId) => {
 		if (userId == props.auth.user.id)
-		return props.dispatch(deleteTheWords(id))
+			return props.dispatch(deleteTheWords(id))
 	}
 
-	console.log(props)
+	// console.log(props)
 
 	const handleUpdateSubmit = (id, e) => {
 		e.preventDefault()
@@ -43,6 +43,7 @@ function ListOfWords(props, auth) {
 			}
 		})
 	}
+
 
 	// This solution is a bit hard coded but it works for me since I am not planning on having 10000 languages rather like 20
 	// mabye so I will put this in its own file if I'm feeling lazy or I could create a better solution in the future.
@@ -66,36 +67,40 @@ function ListOfWords(props, auth) {
 		}
 	}
 
-	// const renderFormWithCorrectId = (id) => {
-	// 	if (id == props.auth.user.id) {
-	// 		return <label>
-	// 						<input className='new-word' type='text' name='word' placeholder='edit word' onChange={(e) => handleChange(e)} />
-	// 						<input className='new-word' type='text' name='meaning' placeholder='edit meaning' onChange={(e) => handleChange(e)} />
-	// 					 </label>		     
-	// 	}
-	// }
+	const checkUserForDelete = (userId, word) => {
+		// let word = props.words
+		if (userId == props.auth.user.id)
+			return <button type='button' onClick={() => deleteOneWord(word.id, word.user_id)}>
+		      			Delete
+						 </button>
+	}
 
 	return (
 		<>
 
 			{!auth.isAuthenticated &&
 				<>
+					{console.log(props)}
 					<ul className='list'>
 						{props.words.map(wrd =>
 							<li key={wrd.id}>
 								{findWordsForEachUser(wrd.user_id, wrd)}
-								<button type='button' onClick={() => deleteOneWord(wrd.id, wrd.user_id)}>
+								{checkUserForDelete(wrd.user_id, wrd)}
+
+								{/* <button type='button' onClick={() => deleteOneWord(wrd.id, wrd.user_id)}>
 									Delete
-								</button>
+								</button> */}
+
+
 								<form onSubmit={(e) => handleUpdateSubmit(wrd.id, e)}>
-								
 									<label>
 										<input className='new-word' type='text' name='word' placeholder='edit word' onChange={(e) => handleChange(e)} />
 										<input className='new-word' type='text' name='meaning' placeholder='edit meaning' onChange={(e) => handleChange(e)} />
 									</label>
-									<button type='submit'>Update word</button> 
+									<button type='submit'>Update word</button>
 								</form>
-							</li>)}
+							</li>)
+						}
 					</ul>
 					<Link to='/'>Back</Link>
 				</>
@@ -113,6 +118,7 @@ function ListOfWords(props, auth) {
 
 		</>
 	)
+
 }
 
 function mapStateToProps(globalState) {
