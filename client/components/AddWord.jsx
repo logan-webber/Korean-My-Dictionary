@@ -3,23 +3,31 @@ import { connect } from 'react-redux'
 import { Link, useHistory } from 'react-router-dom'
 
 import { addTheWords } from '../actions/index'
-// import { fetchUsers } from '../actions/users'
+import { fetchUsers } from '../actions/users'
 
 function AddWord(props, auth) {
 
-    // useEffect(() => {
-    //     props.dispatch(fetchUsers())
-    // }, [])
+    useEffect(() => {
+        props.dispatch(fetchUsers())
+    }, [])
 
     const [formData, setFormData] = useState({
         word: '',
         meaning: '',
-        userId: props.auth.user.id
+        userId: userId
     })
+
+    const userId = props.auth.user.id
+
+    console.log(props.users.id)
+    // console.log(props.auth.user.id)
+    // console.log(props.auth)
+
+
 
     const handleAddSubmit = (e) => {
         e.preventDefault()
-        props.dispatch(addTheWords({ word: formData.word, meaning: formData.meaning, userId: formData.userId }))
+        props.dispatch(addTheWords({ word: formData.word, meaning: formData.meaning}, userId))
         console.log('submitted data')
         routeChange()
     }
@@ -50,8 +58,8 @@ function AddWord(props, auth) {
 
     return (
         <>
-				{!auth.isAuthenticated &&
-					<div className='add-word'>
+		{!auth.isAuthenticated &&
+		  <div className='add-word'>
                 <form onSubmit={handleAddSubmit}>
                     <label  >
                         <input className='new-word' type='text' name='word' placeholder='New word' onChange={(e) => handleChange(e)} />
@@ -60,7 +68,7 @@ function AddWord(props, auth) {
                     <button type='submit'>Add the new word</button>
                 </form>
           </div>
-				}
+		}
           <Link to='/'>Back</Link>
         </>
     )

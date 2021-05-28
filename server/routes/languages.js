@@ -5,7 +5,7 @@ const router = express.Router()
 router.get('/', (req, res) => {
     db.getLanguages()
     .then(results => {
-        console.log(results)
+        // console.log(results)
         res.json(results)
         return null
     })
