@@ -82,7 +82,7 @@ function ListOfWords(props, auth) {
 					<ul className='list'>
 						{props.words.map(wrd =>
 							<li key={wrd.id}>
-
+								<br/>
 								{findWordsForEachUser(wrd.user_id, wrd)}
 								<br/>
 								{checkUserForDelete(wrd.user_id, wrd)}

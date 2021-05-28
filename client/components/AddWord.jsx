@@ -24,6 +24,10 @@ function AddWord(props, auth) {
         routeChange()
     }
 
+		// const passUserIdToNewWord = (id) => {
+		// 	return id
+		// }
+
     const handleChange = (e) => {
         //this function below keeps the event around so that the handlechange func can use it
         //I ended up not needing to use it since my packages were out of date and after an npm i it worked again
