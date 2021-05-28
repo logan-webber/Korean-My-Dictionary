@@ -68,7 +68,6 @@ function ListOfWords(props, auth) {
 	}
 
 	const checkUserForDelete = (userId, word) => {
-		// let word = props.words
 		if (userId == props.auth.user.id)
 			return <button type='button' onClick={() => deleteOneWord(word.id, word.user_id)}>
 		      			Delete
@@ -80,18 +79,15 @@ function ListOfWords(props, auth) {
 
 			{!auth.isAuthenticated &&
 				<>
-					{console.log(props)}
+					{/* {console.log(props)} */}
 					<ul className='list'>
 						{props.words.map(wrd =>
 							<li key={wrd.id}>
+
 								{findWordsForEachUser(wrd.user_id, wrd)}
+								<br/>
 								{checkUserForDelete(wrd.user_id, wrd)}
-
-								{/* <button type='button' onClick={() => deleteOneWord(wrd.id, wrd.user_id)}>
-									Delete
-								</button> */}
-
-
+								<br />
 								<form onSubmit={(e) => handleUpdateSubmit(wrd.id, e)}>
 									<label>
 										<input className='new-word' type='text' name='word' placeholder='edit word' onChange={(e) => handleChange(e)} />

@@ -15,24 +15,11 @@ router.get('/', (req, res) => {
         })
 })
 
-// This route may not be needed but I wrote it for now just in case
-router.get('/:id', (req, res) => {
-    getTheRightUser(id)
-    .then(results => {
-        console.log(results)
-        res.json(results)
-        return null
-    })
-     .catch(err => {
-            console.log(err)
-            res.status(500).json({ message: 'Somthing went wrong' })
-        })
-})
-
 router.post('/', (req, res) => {
     const word = {
         word: req.body.word,
-        meaning: req.body.meaning
+        meaning: req.body.meaning,
+        user_id: req.body.user_id
     }
     db.addWord(word)
     .then(results => {

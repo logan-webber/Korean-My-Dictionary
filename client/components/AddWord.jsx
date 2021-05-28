@@ -3,17 +3,23 @@ import { connect } from 'react-redux'
 import { Link, useHistory } from 'react-router-dom'
 
 import { addTheWords, fetchWords, updateTheWords } from '../actions/index'
+import { fetchUsers } from '../actions/users'
 
 function AddWord(props) {
 
+    // useEffect(() => {
+    //     props.dispatch(fetchUsers())
+    // }, [])
+
     const [formData, setFormData] = useState({
         word: '',
-        meaning: ''
+        meaning: '',
+        userId: props.auth.user.id
     })
 
     const handleAddSubmit = (e) => {
         e.preventDefault()
-        props.dispatch(addTheWords({ word: formData.word, meaning: formData.meaning }))
+        props.dispatch(addTheWords({ word: formData.word, meaning: formData.meaning, userId: formData.userId }))
         console.log('submitted data')
         routeChange()
     }
@@ -56,7 +62,9 @@ function AddWord(props) {
 
 function mapStateToProps(globalState) {
     return {
-        words: globalState.words
+        words: globalState.words,
+        users: globalState.users,
+        auth: globalState.auth
     }
 }
 
