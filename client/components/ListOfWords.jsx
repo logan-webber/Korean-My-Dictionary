@@ -22,13 +22,12 @@ function ListOfWords(props, auth) {
 		props.dispatch(fetchLanguages())
 	}, [])
 
-	const deleteOneWord = (id) => {
+	const deleteOneWord = (id, userId) => {
+		if (userId == props.auth.user.id)
 		return props.dispatch(deleteTheWords(id))
 	}
 
-	// const updateOneWord = (id) => {
-	//     return props.dispatch(updateTheWords(id))
-	// }
+	console.log(props)
 
 	const handleUpdateSubmit = (id, e) => {
 		e.preventDefault()
@@ -85,7 +84,7 @@ function ListOfWords(props, auth) {
 						{props.words.map(wrd =>
 							<li key={wrd.id}>
 								{findWordsForEachUser(wrd.user_id, wrd)}
-								<button type='button' onClick={() => deleteOneWord(wrd.id)}>
+								<button type='button' onClick={() => deleteOneWord(wrd.id, wrd.user_id)}>
 									Delete
 								</button>
 								<form onSubmit={(e) => handleUpdateSubmit(wrd.id, e)}>
