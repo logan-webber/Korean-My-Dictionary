@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { Link, useHistory } from 'react-router-dom'
 
-import { addTheWords, fetchWords, updateTheWords } from '../actions/index'
+import { addTheWords } from '../actions/index'
 // import { fetchUsers } from '../actions/users'
 
-function AddWord(props) {
+function AddWord(props, auth) {
 
     // useEffect(() => {
     //     props.dispatch(fetchUsers())
@@ -46,9 +46,9 @@ function AddWord(props) {
 
     return (
         <>
-				{auth.isAuthenticated &&
+				{!auth.isAuthenticated &&
 					<div className='add-word'>
-                <form  onSubmit={handleAddSubmit}>
+                <form onSubmit={handleAddSubmit}>
                     <label  >
                         <input className='new-word' type='text' name='word' placeholder='New word' onChange={(e) => handleChange(e)} />
                         <input className='new-word' type='text' name='meaning' placeholder='New meaning' onChange={(e) => handleChange(e)} />
