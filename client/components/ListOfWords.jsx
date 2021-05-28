@@ -46,7 +46,7 @@ function ListOfWords(props, auth) {
 	}
 
 	// This solution is a bit hard coded but it works for me since I am not planning on having 10000 languages rather like 20
-	// mabye so I will put this in its on file if I'm feeling lazy or I could create a better solution in the future.
+	// mabye so I will put this in its own file if I'm feeling lazy or I could create a better solution in the future.
 	const findLangauge = (id) => {
 		if (id === 1) {
 			return 'English'
@@ -56,6 +56,7 @@ function ListOfWords(props, auth) {
 	}
 
 	// This function ensure that users only see their own data and not every entry into the words table
+	// it currently doesnt do anything to limit the update or delete buttons for other users words.
 	const findWordsForEachUser = (userId, data) => {
 		if (userId == props.auth.user.id) {
 			return [
@@ -68,10 +69,10 @@ function ListOfWords(props, auth) {
 
 	// const renderFormWithCorrectId = (id) => {
 	// 	if (id == props.auth.user.id) {
-	// 			<label>
-	// 				<input className='new-word' type='text' name='word' placeholder='edit word' onChange={(e) => handleChange(e)} />
-	// 				<input className='new-word' type='text' name='meaning' placeholder='edit meaning' onChange={(e) => handleChange(e)} />
-	// 			</label>
+	// 		return <label>
+	// 						<input className='new-word' type='text' name='word' placeholder='edit word' onChange={(e) => handleChange(e)} />
+	// 						<input className='new-word' type='text' name='meaning' placeholder='edit meaning' onChange={(e) => handleChange(e)} />
+	// 					 </label>		     
 	// 	}
 	// }
 
@@ -86,9 +87,9 @@ function ListOfWords(props, auth) {
 								{findWordsForEachUser(wrd.user_id, wrd)}
 								<button type='button' onClick={() => deleteOneWord(wrd.id)}>
 									Delete
-											</button>
+								</button>
 								<form onSubmit={(e) => handleUpdateSubmit(wrd.id, e)}>
-									{renderFormWithCorrectId(wrd.user_id)}
+								
 									<label>
 										<input className='new-word' type='text' name='word' placeholder='edit word' onChange={(e) => handleChange(e)} />
 										<input className='new-word' type='text' name='meaning' placeholder='edit meaning' onChange={(e) => handleChange(e)} />
