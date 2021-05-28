@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Link, useHistory } from 'react-router-dom'
 
 import { addTheWords, fetchWords, updateTheWords } from '../actions/index'
-import { fetchUsers } from '../actions/users'
+// import { fetchUsers } from '../actions/users'
 
 function AddWord(props) {
 
@@ -46,7 +46,8 @@ function AddWord(props) {
 
     return (
         <>
-				<div className='add-word'>
+				{auth.isAuthenticated &&
+					<div className='add-word'>
                 <form  onSubmit={handleAddSubmit}>
                     <label  >
                         <input className='new-word' type='text' name='word' placeholder='New word' onChange={(e) => handleChange(e)} />
@@ -54,8 +55,9 @@ function AddWord(props) {
                     </label>
                     <button type='submit'>Add the new word</button>
                 </form>
-            </div>
-            <Link to='/'>Back</Link>
+          </div>
+				}
+          <Link to='/'>Back</Link>
         </>
     )
 }

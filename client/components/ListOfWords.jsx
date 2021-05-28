@@ -44,7 +44,6 @@ function ListOfWords(props, auth) {
 		})
 	}
 
-
 	// This solution is a bit hard coded but it works for me since I am not planning on having 10000 languages rather like 20
 	// mabye so I will put this in its own file if I'm feeling lazy or I could create a better solution in the future.
 	const findLangauge = (id) => {
