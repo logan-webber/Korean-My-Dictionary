@@ -3,13 +3,8 @@ import { connect } from 'react-redux'
 import { Link, useHistory } from 'react-router-dom'
 
 import { addTheWords } from '../actions/index'
-import { fetchUsers } from '../actions/users'
 
 function AddWord(props, auth) {
-
-    useEffect(() => {
-        props.dispatch(fetchUsers())
-    }, [])
 
     const [formData, setFormData] = useState({
         word: '',
@@ -18,7 +13,6 @@ function AddWord(props, auth) {
     })
 
     console.log(props.auth.user.id)
-    // console.log(props.auth)
 
     const handleAddSubmit = (e) => {
         e.preventDefault()
@@ -26,10 +20,6 @@ function AddWord(props, auth) {
         console.log('submitted data')
         routeChange()
     }
-
-		// const passUserIdToNewWord = (id) => {
-		// 	return id
-		// }
 
     const handleChange = (e) => {
         //this function below keeps the event around so that the handlechange func can use it
@@ -72,7 +62,6 @@ function AddWord(props, auth) {
 function mapStateToProps(globalState) {
     return {
         words: globalState.words,
-        users: globalState.users,
         auth: globalState.auth
     }
 }
