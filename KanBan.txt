@@ -1,19 +1,13 @@
-Ideas:
-Add buttons for features to appear on screen so its less clunky
-Make all pages more aesthetic
+Todo:
 Add filter for languages
 
 
 
-
-Todo:
-
-
-
 Working on:
-Bind users to their own data so they only get their own words
-
+Make all pages more aesthetic
+Add buttons for features to appear on screen so its less clunky
 
 
 Completed:
+Bind users to their own data so they only get their own words
 Add Different Languages and make them selectable
