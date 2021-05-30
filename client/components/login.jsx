@@ -32,39 +32,40 @@ function Login(props) {
 
 	return (
 		<>
-			<h1>Login</h1>
+			<h1 className='title'>Login</h1>
 			<form onSubmit={handleSubmit}>
-			<hr/>
 				{auth.errorMessage && (
 					<span className="error">{auth.errorMessage}</span>
 				)}
-				<label>Username
-					<input
-						required
-						className="login"
-						placeholder="Username"
-						type="text"
-						name="username"
-						autoComplete="username"
-						value={formData.username}
-						onChange={handleChange}
-					/>
-				</label>
-				<label>
-					<input
-						required
-						className="login"
-						placeholder="Password"
-						type="password"
-						name="password"
-						autoComplete="current-password"
-						value={formData.password}
-						onChange={handleChange}
-					/>
-				</label>
-				<button type='submit'>Done</button>
+				<div className='login-boxes'>
+					<label>
+						<input
+							required
+							className="login"
+							placeholder="Username"
+							type="text"
+							name="username"
+							autoComplete="username"
+							value={formData.username}
+							onChange={handleChange}
+						/>
+					</label>
+					<label>
+						<input
+							required
+							className="login"
+							placeholder="Password"
+							type="password"
+							name="password"
+							autoComplete="current-password"
+							value={formData.password}
+							onChange={handleChange}
+						/>
+					</label>
+				</div>
+				<button className='button' type='submit'>Login</button>
 			</form>
-			<Link to='/' replace >back</Link>
+			<Link className='back-button' to='/' replace >back</Link>
 		</>
 	)
 }

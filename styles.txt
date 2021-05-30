@@ -31,6 +31,14 @@ body {
   align-items: center;
 }
 
+.login-boxes {
+    text-align: center;
+}
+
+.back-button {
+    text-align: center, bottom;
+}
+
 .title {
   text-align: center;
 }
