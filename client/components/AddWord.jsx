@@ -12,7 +12,7 @@ function AddWord(props, auth) {
         userId: props.auth.user.id
     })
 
-    console.log(props.auth.user.id)
+    // console.log(props.auth.user.id)
 
     const handleAddSubmit = (e) => {
         e.preventDefault()

@@ -66,11 +66,19 @@ function ListOfWords(props, auth) {
 		}
 	}
 
-	const checkUserForDelete = (userId, word) => {
+	const checkUserForDelete = (userId, wordData) => {
 		if (userId == props.auth.user.id)
-			return <button type='button' onClick={() => deleteOneWord(word.id, word.user_id)}>
+			return <button type='button' onClick={() => deleteOneWord(wordData.id, wordData.user_id)}>
 		      			Delete
 						 </button>
+	}
+
+	const checkUserForUpdate = (userId) => {
+		if (userId == props.auth.user.id) 
+			return <label>
+							<input className='new-word' type='text' name='word' placeholder='edit word' onChange={(e) => handleChange(e)}/>
+							<input className='new-word' type='text' name='meaning' placeholder='edit meaning' onChange={(e) => handleChange(e)}/>
+				   	 </label>
 	}
 
 	return (
@@ -88,10 +96,11 @@ function ListOfWords(props, auth) {
 								{checkUserForDelete(wrd.user_id, wrd)}
 								<br />
 								<form onSubmit={(e) => handleUpdateSubmit(wrd.id, e)}>
-									<label>
+									{checkUserForUpdate(wrd.user_id)}
+									{/* <label>
 										<input className='new-word' type='text' name='word' placeholder='edit word' onChange={(e) => handleChange(e)} />
 										<input className='new-word' type='text' name='meaning' placeholder='edit meaning' onChange={(e) => handleChange(e)} />
-									</label>
+									</label> */}
 									<button type='submit'>Update word</button>
 								</form>
 							</li>)
