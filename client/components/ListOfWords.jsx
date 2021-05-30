@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 import { fetchWords, deleteTheWords, updateTheWords } from '../actions/index'
 import { fetchLanguages } from '../actions/languages'
 import { fetchUsers } from '../actions/users'
-// import { receiveLogin } from '../actions/auth'
 
 function ListOfWords(props, auth) {
 
@@ -26,8 +25,6 @@ function ListOfWords(props, auth) {
 		if (userId == props.auth.user.id)
 			return props.dispatch(deleteTheWords(id))
 	}
-
-	// console.log(props)
 
 	const handleUpdateSubmit = (id, e) => {
 		e.preventDefault()
@@ -116,12 +113,9 @@ function ListOfWords(props, auth) {
 					<h2>You are not logged in</h2>
 					<Link to='/login'>Click here to Login</Link>
 				</>
-
 			}
-
 		</>
 	)
-
 }
 
 function mapStateToProps(globalState) {

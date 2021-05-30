@@ -21,14 +21,6 @@ function Login(props) {
 		})
 	}
 
-	// const history = useHistory()
-
-	// const routeChange = () => {
-	// 	let path = `/listofwords`
-	// 	history.push(path)
-	// }
-
-
 	const handleSubmit = (e) => {
 		e.preventDefault()
 		let { username, password } = formData
