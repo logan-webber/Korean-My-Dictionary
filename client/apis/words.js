@@ -16,9 +16,9 @@ export function getWords () {
 //     })
 // }
 
-export function addWords (words, id) {
+export function addWords (words) {
     return request.post(rootUrl + '/words')
-    .send(words, id)
+    .send(words)
     .then(res => {
         return res.body
     })

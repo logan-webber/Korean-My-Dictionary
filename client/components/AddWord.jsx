@@ -14,20 +14,15 @@ function AddWord(props, auth) {
     const [formData, setFormData] = useState({
         word: '',
         meaning: '',
-        userId: userId
+        userId: props.auth.user.id
     })
 
-    const userId = props.auth.user.id
-
-    console.log(props.users.id)
-    // console.log(props.auth.user.id)
+    console.log(props.auth.user.id)
     // console.log(props.auth)
-
-
 
     const handleAddSubmit = (e) => {
         e.preventDefault()
-        props.dispatch(addTheWords({ word: formData.word, meaning: formData.meaning}, userId))
+        props.dispatch(addTheWords({ word: formData.word, meaning: formData.meaning, userId: formData.userId }))
         console.log('submitted data')
         routeChange()
     }
@@ -41,7 +36,7 @@ function AddWord(props, auth) {
         //I ended up not needing to use it since my packages were out of date and after an npm i it worked again
         // e.persist()
         setFormData(currentFormData => {
-            console.log(e)
+            // console.log(e)
             return {
                 ...currentFormData,
                 [e.target.name]: e.target.value

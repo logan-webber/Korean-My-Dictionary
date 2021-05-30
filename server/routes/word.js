@@ -19,7 +19,7 @@ router.post('/', (req, res) => {
     const word = {
         word: req.body.word,
         meaning: req.body.meaning,
-        user_id: req.params.id
+        user_id: req.body.user_id
     }
     db.addWord(word)
     .then(results => {
