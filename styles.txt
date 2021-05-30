@@ -1,0 +1,40 @@
+This file will contain a txt version of my css since my css file is hidden within my project
+
+@import url(https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&display=swap);
+html,
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+.button {
+  border-radius: 12px;
+  background-color:white ;
+  color:black
+}
+
+.button:hover {
+  background-color:grey;
+  color:black
+}
+
+.list {
+  text-align: center;
+  list-style-type: none;
+}
+
+.new-word {
+  text-align: center;
+}
+
+.add-word {
+  text-align: center;
+  align-items: center;
+}
+
+.title {
+  text-align: center;
+}
+
+.link {
+  text-align: center;
+}
