@@ -68,7 +68,7 @@ function ListOfWords(props, auth) {
 
 	const checkUserForDelete = (userId, wordData) => {
 		if (userId == props.auth.user.id)
-			return <button className='button is-link is-small' type='button' onClick={() => deleteOneWord(wordData.id, wordData.user_id)}>
+			return <button className='button' type='button' onClick={() => deleteOneWord(wordData.id, wordData.user_id)}>
 		      			Delete
 				   </button>
 	}
@@ -83,7 +83,7 @@ function ListOfWords(props, auth) {
 
 	const updateButtonStorage = (userId) => {
 		if (userId == props.auth.user.id)
-			return <button className='button is-link is-small' type='submit'>Update word</button>
+			return <button className='button' type='submit'>Update word</button>
 	}
 
 	return (
