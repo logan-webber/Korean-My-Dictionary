@@ -81,12 +81,15 @@ function ListOfWords(props, auth) {
 				   	 </label>
 	}
 
+	const updateButtonStorage = (userId) => {
+		if (userId == props.auth.user.id)
+			return <button type='submit'>Update word</button>
+	}
+
 	return (
 		<>
-
 			{!auth.isAuthenticated &&
 				<>
-					{/* {console.log(props)} */}
 					<ul className='list'>
 						{props.words.map(wrd =>
 							<li key={wrd.id}>
@@ -97,11 +100,7 @@ function ListOfWords(props, auth) {
 								<br />
 								<form onSubmit={(e) => handleUpdateSubmit(wrd.id, e)}>
 									{checkUserForUpdate(wrd.user_id)}
-									{/* <label>
-										<input className='new-word' type='text' name='word' placeholder='edit word' onChange={(e) => handleChange(e)} />
-										<input className='new-word' type='text' name='meaning' placeholder='edit meaning' onChange={(e) => handleChange(e)} />
-									</label> */}
-									<button type='submit'>Update word</button>
+									{updateButtonStorage(wrd.user_id)}
 								</form>
 							</li>)
 						}
