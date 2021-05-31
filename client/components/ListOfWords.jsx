@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 import { fetchWords, deleteTheWords, updateTheWords } from '../actions/index'
-import { fetchLanguages } from '../actions/languages'
 import { fetchUsers } from '../actions/users'
 
 function ListOfWords(props, auth) {
@@ -18,7 +17,6 @@ function ListOfWords(props, auth) {
 		// from the db
 		props.dispatch(fetchWords())
 		props.dispatch(fetchUsers())
-		props.dispatch(fetchLanguages())
 	}, [])
 
 	const deleteOneWord = (id, userId) => {
