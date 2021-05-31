@@ -6,6 +6,7 @@ import ListOfWords from './ListOfWords'
 import Home from './Home'
 import SignUp from './SignUp'
 import login from './login'
+import Nav from './Nav'
 
 function App({ auth }) {
 	return (

@@ -4,10 +4,9 @@ import { connect } from 'react-redux'
 function Nav(props) {
 	return (
 		<>
-			<nav className='dropdown'>
-				<ul className='list'>
-
-				</ul>
+			{/* <h1>nav</h1> */}
+			<nav className='navbar'>
+				<ul className='navbar-nav'></ul>
 			</nav>
 		</>
 	)
