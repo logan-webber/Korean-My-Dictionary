@@ -93,11 +93,10 @@ function ListOfWords(props, auth) {
 								<br/>
 								{findWordsForEachUser(wrd.user_id, wrd)}
 								<br/>
-								{checkUserForDelete(wrd.user_id, wrd)}
-								<br />
 								<form onSubmit={(e) => handleUpdateSubmit(wrd.id, e)}>
 									{checkUserForUpdate(wrd.user_id)}
 									{updateButtonStorage(wrd.user_id)}
+                                    {checkUserForDelete(wrd.user_id, wrd)}
 								</form>
 							</li>)
 						}
