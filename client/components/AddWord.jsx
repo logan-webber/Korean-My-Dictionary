@@ -9,7 +9,7 @@ function AddWord(props, auth) {
 	const [formData, setFormData] = useState({
 		word: '',
 		meaning: '',
-		languageId: NaN,
+		language: '',
 		userId: props.auth.user.id
 	})
 
@@ -19,7 +19,7 @@ function AddWord(props, auth) {
 
 	const handleAddSubmit = (e) => {
 		e.preventDefault()
-		props.dispatch(addTheWords({ word: formData.word, meaning: formData.meaning, language_id: formData.languageId, user_id: formData.userId }))
+		props.dispatch(addTheWords({ word: formData.word, meaning: formData.meaning, language: formData.language, user_id: formData.userId }))
 		console.log('submitted data')
 		routeChange()
 	}
@@ -44,6 +44,11 @@ function AddWord(props, auth) {
 		history.push(path)
 	}
 
+	let languages = {
+		korean: 'Korean',
+		english: 'English'
+	}
+
 	return (
 		<>
 			{!auth.isAuthenticated &&
@@ -53,8 +58,10 @@ function AddWord(props, auth) {
 							<input className='new-word' type='text' name='word' placeholder='New word' onChange={(e) => handleChange(e)} />
 							<input className='new-word' type='text' name='meaning' placeholder='New meaning' onChange={(e) => handleChange(e)} />
 							<div className='dropdown'>
-								<button className='dropbtn'>Dropdown</button>
+								<button type='button' className='dropbtn'>Dropdown</button>
 								<div className='dropdown-list'>
+									<div>{languages.korean}</div>
+									<div>{languages.english}</div>
 								</div>
 							</div>
 						</label>
