@@ -6,67 +6,72 @@ import { addTheWords } from '../actions/index'
 
 function AddWord(props, auth) {
 
-    const [formData, setFormData] = useState({
-        word: '',
-        meaning: '',
-        languageId: NaN,
-        userId: props.auth.user.id
-    })
+	const [formData, setFormData] = useState({
+		word: '',
+		meaning: '',
+		languageId: NaN,
+		userId: props.auth.user.id
+	})
 
-    
 
-    // console.log(props.auth.user.id)
 
-    const handleAddSubmit = (e) => {
-        e.preventDefault()
-        props.dispatch(addTheWords({ word: formData.word, meaning: formData.meaning, language_id: formData.languageId, user_id: formData.userId }))
-        console.log('submitted data')
-        routeChange()
-    }
+	// console.log(props.auth.user.id)
 
-    const handleChange = (e) => {
-        //this function below keeps the event around so that the handlechange func can use it
-        //I ended up not needing to use it since my packages were out of date and after an npm i it worked again
-        // e.persist()
-        setFormData(currentFormData => {
-            // console.log(e)
-            return {
-                ...currentFormData,
-                [e.target.name]: e.target.value
-            }
-        })
-    }
+	const handleAddSubmit = (e) => {
+		e.preventDefault()
+		props.dispatch(addTheWords({ word: formData.word, meaning: formData.meaning, language_id: formData.languageId, user_id: formData.userId }))
+		console.log('submitted data')
+		routeChange()
+	}
 
-    const history = useHistory()
+	const handleChange = (e) => {
+		//this function below keeps the event around so that the handlechange func can use it
+		//I ended up not needing to use it since my packages were out of date and after an npm i it worked again
+		// e.persist()
+		setFormData(currentFormData => {
+			// console.log(e)
+			return {
+				...currentFormData,
+				[e.target.name]: e.target.value
+			}
+		})
+	}
 
-    const routeChange = () => {
-        let path = `/listofwords`
-        history.push(path)
-    }
+	const history = useHistory()
 
-    return (
-        <>
-		{!auth.isAuthenticated &&
-		  <div className='add-word'>
-                <form onSubmit={handleAddSubmit}>
-                    <label  >
-                        <input className='new-word' type='text' name='word' placeholder='New word' onChange={(e) => handleChange(e)} />
-                        <input className='new-word' type='text' name='meaning' placeholder='New meaning' onChange={(e) => handleChange(e)} />
-                    </label>
-                    <button type='submit'>Add the new word</button>
-                </form>
-          </div>
-		}
-          <Link to='/'>Back</Link>
-        </>
-    )
+	const routeChange = () => {
+		let path = `/listofwords`
+		history.push(path)
+	}
+
+	return (
+		<>
+			{!auth.isAuthenticated &&
+				<div className='add-word'>
+					<form onSubmit={handleAddSubmit}>
+						<label  >
+							<input className='new-word' type='text' name='word' placeholder='New word' onChange={(e) => handleChange(e)} />
+							<input className='new-word' type='text' name='meaning' placeholder='New meaning' onChange={(e) => handleChange(e)} />
+							<div className='dropdown'>
+								<button className='dropbtn'>Dropdown</button>
+								<div className='dropdown-list'>
+								</div>
+							</div>
+						</label>
+						<button type='submit'>Add the new word</button>
+					</form>
+				</div>
+			}
+			<Link to='/'>Back</Link>
+		</>
+	)
 }
 
 function mapStateToProps(globalState) {
-    return {
-        words: globalState.words,
-        auth: globalState.auth
-    }
+	return {
+		words: globalState.words,
+		auth: globalState.auth
+	}
 }
 
 export default connect(mapStateToProps)(AddWord)
