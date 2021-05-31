@@ -16,7 +16,7 @@ function AddWord(props, auth) {
 
     const handleAddSubmit = (e) => {
         e.preventDefault()
-        props.dispatch(addTheWords({ word: formData.word, meaning: formData.meaning, userId: formData.userId }))
+        props.dispatch(addTheWords({ word: formData.word, meaning: formData.meaning, user_id: formData.userId }))
         console.log('submitted data')
         routeChange()
     }
