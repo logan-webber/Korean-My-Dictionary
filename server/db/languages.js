@@ -1,10 +1,10 @@
-const connection = require('./connection')
+// const connection = require('./connection')
 
-function getLanguages(db = connection) {
-    return db('languages').select()
-}
+// function getLanguages(db = connection) {
+//     return db('languages').select()
+// }
 
 
-module.exports = {
-    getLanguages,   
-}
+// module.exports = {
+//     getLanguages,   
+// }
