@@ -9,14 +9,17 @@ function AddWord(props, auth) {
     const [formData, setFormData] = useState({
         word: '',
         meaning: '',
+        languageId: NaN,
         userId: props.auth.user.id
     })
+
+    
 
     // console.log(props.auth.user.id)
 
     const handleAddSubmit = (e) => {
         e.preventDefault()
-        props.dispatch(addTheWords({ word: formData.word, meaning: formData.meaning, user_id: formData.userId }))
+        props.dispatch(addTheWords({ word: formData.word, meaning: formData.meaning, language_id: formData.languageId, user_id: formData.userId }))
         console.log('submitted data')
         routeChange()
     }
