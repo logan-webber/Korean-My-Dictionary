@@ -1,8 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&display=swap');
 
-html, 
+@import url(https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&display=swap);
+html,
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
+}
+
+.button {
+  border-radius: 12px;
+  background-color:white ;
+  color:black
+}
+
+.button:hover {
+  background-color:grey;
+  color:black
 }
 
 .list {
@@ -10,16 +22,24 @@ body {
   list-style-type: none;
 }
 
-.new-word{
+.new-word {
   text-align: center;
 }
 
-.add-word{
+.add-word {
   text-align: center;
   align-items: center;
 }
 
-.title{
+.login-boxes {
+    text-align: center;
+}
+
+.back-button {
+    text-align: center, bottom;
+}
+
+.title {
   text-align: center;
 }
 
