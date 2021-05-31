@@ -4,6 +4,7 @@ Add filter for languages
 
 
 Working on:
+Add navigation bar
 Make all pages more aesthetic
 Add buttons for features to appear on screen so its less clunky
 

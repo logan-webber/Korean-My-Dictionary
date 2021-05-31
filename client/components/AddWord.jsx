@@ -57,7 +57,7 @@ function AddWord(props, auth) {
 						<label  >
 							<input className='new-word' type='text' name='word' placeholder='New word' onChange={(e) => handleChange(e)} />
 							<input className='new-word' type='text' name='meaning' placeholder='New meaning' onChange={(e) => handleChange(e)} />
-						
+							
 						</label>
 						<button type='submit'>Add the new word</button>
 					</form>
