@@ -63,9 +63,13 @@ function Login(props) {
 						/>
 					</label>
 				</div>
-				<button className='button' type='submit'>Login</button>
+                <div className='button-div'>
+                    <button className='button' type='submit'>Login</button>
+                </div>
 			</form>
-			<Link className='back-button' to='/' replace >back</Link>
+            <div className='button-div'>
+			    <Link to='/' replace >back</Link>
+            </div>
 		</>
 	)
 }

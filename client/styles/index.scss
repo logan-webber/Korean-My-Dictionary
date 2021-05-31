@@ -4,17 +4,23 @@
 html,
 body {
   font-family: "Montserrat", sans-serif;
+//   background-color:rgb(33, 2, 172)
 }
 
 .button {
   border-radius: 12px;
-  background-color:white ;
-  color:black
+  background-color:#569CE6 ;
+  color:white;
 }
 
 .button:hover {
-  background-color:grey;
-  color:black
+  background-color:#4E68C7;
+  color:white
+}
+
+.button-div {
+  text-align: center;
+  padding-top: 10px;
 }
 
 .list {
