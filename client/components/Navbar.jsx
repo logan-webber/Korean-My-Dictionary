@@ -40,14 +40,14 @@ function Nav(props) {
 					<i className={click ? 'fas fa-times' : 'fas fa-bars'} />
 				</div>
 				<ul className={click ? 'nav-menu active' : 'nav-menu'}>
-					<li className='nav-item'>
+					{/* <li className='nav-item'>
 						<Link to='/listofwords' className='nav-links' onClick={closeMobileMenu}>
 							Your Words
 						</Link>
-					</li>
+					</li> */}
 					<li className='nav-item' onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
-						<Link to='/yourdictionary' className='nav-links' onClick={closeMobileMenu}>
-							Your dictionary <i className='fas fa-caret-down' />
+						<Link to='/' className='nav-links' onClick={closeMobileMenu}>
+							Your Dictionary <i className='fas fa-caret-down' />
 						</Link>
 						{dropdown && <Dropdown/>}
 					</li>
