@@ -3,16 +3,16 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import Dropdown from './Dropdown'
 
-function Nav(props) {
+function Nav({props, auth}) {
 
 	const [click, setClick] = useState(false)
-	const [dropdown, setDropdown] =useState(false)
+	const [dropdown, setDropdown] = useState(false)
 
 	const handleClick = () => setClick(!click)
 	const closeMobileMenu = () => setClick(false)
 
 	const onMouseEnter = () => {
-		if(window.innerWidth < 960) {
+		if (window.innerWidth < 960) {
 			setDropdown(false)
 		} else {
 			setDropdown(true)
@@ -30,12 +30,16 @@ function Nav(props) {
 	return (
 		<>
 			<nav className='navbar'>
-				<Link to='/login' className='navbar-logo'>
-					Login
-				</Link>
-				<Link to='/signup' className='navbar-logo'>
-					Signup
-				</Link>
+				{!auth.isAuthenticated &&
+					<>
+						<Link to='/login' className='navbar-logo'>
+							Login
+						</Link>
+						<Link to='/signup' className='navbar-logo'>
+							Signup
+						</Link>
+					</>
+				}
 				<div className='menu-icon' onClick={handleClick}>
 					<i className={click ? 'fas fa-times' : 'fas fa-bars'} />
 				</div>
@@ -49,7 +53,7 @@ function Nav(props) {
 						<Link to='/' className='nav-links' onClick={closeMobileMenu}>
 							Your Dictionary <i className='fas fa-caret-down' />
 						</Link>
-						{dropdown && <Dropdown/>}
+						{dropdown && <Dropdown />}
 					</li>
 				</ul>
 			</nav>
