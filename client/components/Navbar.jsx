@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import Dropdown from './Dropdown'
 
-function Nav({props, auth}) {
+function Nav({ props, auth, logout }) {
 
 	const [click, setClick] = useState(false)
 	const [dropdown, setDropdown] = useState(false)
@@ -40,6 +40,13 @@ function Nav({props, auth}) {
 						</Link>
 					</>
 				}
+				{auth.isAuthenticated &&
+					<>
+						<Link to='/' onClick={() => logout()} className='navbar-logo'>
+							Logout
+						</Link>
+					</>
+				}
 				<div className='menu-icon' onClick={handleClick}>
 					<i className={click ? 'fas fa-times' : 'fas fa-bars'} />
 				</div>
@@ -62,10 +69,20 @@ function Nav({props, auth}) {
 
 }
 
+const mapDispatchToProps = (dispatch, ownProps) => {
+	return {
+		logout: () => {
+			const confirmSuccess = () => ownProps.history.push('/')
+			dispatch(logoutUser(confirmSuccess))
+		},
+		fetchHouses: () => dispatch(fetchProperties())
+	}
+}
+
 const mapStateToProps = ({ auth }) => {
 	return {
 		auth,
 	}
 }
 
-export default connect(mapStateToProps)(Nav)
+export default connect(mapStateToProps, mapDispatchToProps)(Nav)

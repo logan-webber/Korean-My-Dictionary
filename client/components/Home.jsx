@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link} from 'react-router-dom'
 import { connect } from 'react-redux'
-import { logoutUser } from '../actions/auth'
+// import { logoutUser } from '../actions/auth'
 
 function Home({auth, logout}) {
 
@@ -19,10 +19,10 @@ function Home({auth, logout}) {
 						<br/>
 						<Link to='/addword'>Click here to add a new word</Link>
 					</div>
-					<div className='link'>
+					{/* <div className='link'>
 						<br/>
 					<Link to='/' onClick={() => logout()}>Logout</Link>
-					</div>
+					</div> */}
 				</>
 			}
 			{!auth.isAuthenticated &&
@@ -43,15 +43,15 @@ function Home({auth, logout}) {
 	)
 }
 
-const mapDispatchToProps = (dispatch, ownProps) => {
-	return {
-		logout: () => {
-			const confirmSuccess = () => ownProps.history.push('/')
-			dispatch(logoutUser(confirmSuccess))
-		},
-		fetchHouses: () => dispatch(fetchProperties())
-	}
-}
+// const mapDispatchToProps = (dispatch, ownProps) => {
+// 	return {
+// 		logout: () => {
+// 			const confirmSuccess = () => ownProps.history.push('/')
+// 			dispatch(logoutUser(confirmSuccess))
+// 		},
+// 		fetchHouses: () => dispatch(fetchProperties())
+// 	}
+// }
 
 
 function mapStateToProps(globalState) {
@@ -61,4 +61,4 @@ function mapStateToProps(globalState) {
 	}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home)
+export default connect(mapStateToProps)(Home)
