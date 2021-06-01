@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { MenuItems } from './MenuItems'
 
-function Dropdown(props) {
+function MenuItems(props) {
     return (
         <>
-            
+
         </>
     )
 
@@ -24,4 +23,4 @@ const mapStateToProps = ({ auth }) => {
     }
 }
 
-export default connect(mapStateToProps)(Dropdown)
+export default connect(mapStateToProps)(MenuItems)

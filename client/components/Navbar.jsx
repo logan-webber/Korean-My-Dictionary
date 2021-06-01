@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import Button from './Button'
+// import Button from './Button'
 import Dropdown from './Dropdown'
 
 function Nav(props) {
@@ -38,7 +38,6 @@ function Nav(props) {
 						{dropdown && <Dropdown/>}
 					</li>
 				</ul>
-				<Button />
 			</nav>
 		</>
 	)
