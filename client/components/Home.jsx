@@ -1,9 +1,8 @@
 import React from 'react'
 import { Link} from 'react-router-dom'
 import { connect } from 'react-redux'
-// import { logoutUser } from '../actions/auth'
 
-function Home({auth, logout}) {
+function Home({auth}) {
 
 	return (
 		<>
@@ -19,10 +18,6 @@ function Home({auth, logout}) {
 						<br/>
 						<Link to='/addword'>Click here to add a new word</Link>
 					</div>
-					{/* <div className='link'>
-						<br/>
-					<Link to='/' onClick={() => logout()}>Logout</Link>
-					</div> */}
 				</>
 			}
 			{!auth.isAuthenticated &&
@@ -42,17 +37,6 @@ function Home({auth, logout}) {
 		</>
 	)
 }
-
-// const mapDispatchToProps = (dispatch, ownProps) => {
-// 	return {
-// 		logout: () => {
-// 			const confirmSuccess = () => ownProps.history.push('/')
-// 			dispatch(logoutUser(confirmSuccess))
-// 		},
-// 		fetchHouses: () => dispatch(fetchProperties())
-// 	}
-// }
-
 
 function mapStateToProps(globalState) {
 	return {
