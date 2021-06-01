@@ -10,12 +10,16 @@ import Navbar from './Navbar'
 
 function App({ auth }) {
 	return (
-		<>  
+		<>
 			<Router>
-                <Navbar/>
-				<Route path='/' exact component={Home} />
-				<Route path='/signup' exact component={SignUp} />
-				<Route path='/login' exact component={login} />
+				<Navbar />
+				{!auth.isAuthenticated &&
+					<>
+						<Route path='/' exact component={Home} />
+						<Route path='/signup' exact component={SignUp} />
+						<Route path='/login' exact component={login} />
+					</>
+				}
 				{auth.isAuthenticated &&
 					<>
 						<Route path='/listofwords' exact component={ListOfWords} />
