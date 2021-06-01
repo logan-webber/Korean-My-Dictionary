@@ -6,20 +6,17 @@ import ListOfWords from './ListOfWords'
 import Home from './Home'
 import SignUp from './SignUp'
 import login from './login'
-// import { Nav, NavItem } from './Nav'
+import Navbar from './Navbar'
 
 function App({ auth }) {
 	return (
-		<>
+		<>  
 			<Router>
+                <Navbar/>
 				<Route path='/' exact component={Home} />
 				<Route path='/signup' exact component={SignUp} />
 				<Route path='/login' exact component={login} />
-				{/* <Route path='/nav' exact component={Nav}>
-					<NavItem icon='bungus' />
-					<NavItem icon='bungus' />
-					<NavItem icon='bungus' />
-				</Route> */}
+				{/* <Route path='/nav' exact component={Nav} /> */}
 				{auth.isAuthenticated &&
 					<>
 						<Route path='/listofwords' exact component={ListOfWords} />

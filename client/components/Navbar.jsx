@@ -7,7 +7,14 @@ import Dropdown from './Dropdown'
 function Nav(props) {
 	return (
 		<>
-		
+			<nav className='navbar'>
+				<Link to='/login' className='navbar-logo'>
+					Login
+				</Link>
+				<Link to='/signup' className='navbar-logo'>
+					Signup
+				</Link>
+			</nav>
 		</>
 	)
 
