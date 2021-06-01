@@ -13,9 +13,9 @@ function App({ auth }) {
 		<>
 			<Router>
 				<Navbar />
+				<Route path='/' exact component={Home} />
 				{!auth.isAuthenticated &&
 					<>
-						<Route path='/' exact component={Home} />
 						<Route path='/signup' exact component={SignUp} />
 						<Route path='/login' exact component={login} />
 					</>
