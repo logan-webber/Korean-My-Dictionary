@@ -44,10 +44,10 @@ function AddWord(props, auth) {
 		history.push(path)
 	}
 
-	let languages = {
-		korean: 'Korean',
-		english: 'English'
-	}
+	// let languages = {
+	// 	korean: 'Korean',
+	// 	english: 'English'
+	// }
 
 	return (
 		<>
@@ -57,10 +57,19 @@ function AddWord(props, auth) {
 						<label  >
 							<input className='new-word' type='text' name='word' placeholder='New word' onChange={(e) => handleChange(e)} />
 							<input className='new-word' type='text' name='meaning' placeholder='New meaning' onChange={(e) => handleChange(e)} />
-							
+
 						</label>
+
 						<button type='submit'>Add the new word</button>
 					</form>
+					<div className="dropdown">
+						<button type='button' className="dropbtn">Dropdown</button>
+						<div className="dropdown-content">
+							<a href="#">Link 1</a>
+							<a href="#">Link 2</a>
+							<a href="#">Link 3</a>
+						</div>
+					</div>
 				</div>
 			}
 			<Link to='/'>Back</Link>

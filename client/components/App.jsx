@@ -6,7 +6,7 @@ import ListOfWords from './ListOfWords'
 import Home from './Home'
 import SignUp from './SignUp'
 import login from './login'
-import { Nav, NavItem } from './Nav'
+// import { Nav, NavItem } from './Nav'
 
 function App({ auth }) {
 	return (
@@ -15,11 +15,11 @@ function App({ auth }) {
 				<Route path='/' exact component={Home} />
 				<Route path='/signup' exact component={SignUp} />
 				<Route path='/login' exact component={login} />
-				<Route path='/nav' exact component={Nav}>
+				{/* <Route path='/nav' exact component={Nav}>
 					<NavItem icon='bungus' />
 					<NavItem icon='bungus' />
 					<NavItem icon='bungus' />
-				</Route>
+				</Route> */}
 				{auth.isAuthenticated &&
 					<>
 						<Route path='/listofwords' exact component={ListOfWords} />
