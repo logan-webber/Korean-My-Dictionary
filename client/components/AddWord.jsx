@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { Link, useHistory } from 'react-router-dom'
 
 import { addTheWords } from '../actions/index'
+import { Languages } from '../data-storage/Languages'
 
 function AddWord(props, auth) {
 
@@ -13,9 +14,9 @@ function AddWord(props, auth) {
 		userId: props.auth.user.id
 	})
 
+	const [click, setClick] = useState(false)
 
-
-	// console.log(props.auth.user.id)
+	const handleClick = () => setClick(!click)
 
 	const handleAddSubmit = (e) => {
 		e.preventDefault()
@@ -44,11 +45,6 @@ function AddWord(props, auth) {
 		history.push(path)
 	}
 
-	// let languages = {
-	// 	korean: 'Korean',
-	// 	english: 'English'
-	// }
-
 	return (
 		<>
 			{!auth.isAuthenticated &&
@@ -57,7 +53,15 @@ function AddWord(props, auth) {
 						<label  >
 							<input className='new-word' type='text' name='word' placeholder='New word' onChange={(e) => handleChange(e)} />
 							<input className='new-word' type='text' name='meaning' placeholder='New meaning' onChange={(e) => handleChange(e)} />
-
+							<ul onClick={handleClick} className={click ? 'dropdown-menu clicked' : 'dropdown-menu'}>
+								{Languages.map((item) => {
+									return (
+										<li key={item.id}>
+											<div className={item.cName}>{item.language}</div>
+										</li>
+									)
+								})}
+							</ul>
 						</label>
 
 						<button type='submit'>Add the new word</button>

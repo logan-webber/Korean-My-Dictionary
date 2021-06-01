@@ -51,11 +51,6 @@ function Nav({ props, auth, logout }) {
 					<i className={click ? 'fas fa-times' : 'fas fa-bars'} />
 				</div>
 				<ul className={click ? 'nav-menu active' : 'nav-menu'}>
-					{/* <li className='nav-item'>
-						<Link to='/listofwords' className='nav-links' onClick={closeMobileMenu}>
-							Your Words
-						</Link>
-					</li> */}
 					<li className='nav-item' onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
 						<Link to='/' className='nav-links' onClick={closeMobileMenu}>
 							Your Dictionary <i className='fas fa-caret-down' />
