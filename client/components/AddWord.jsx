@@ -62,14 +62,6 @@ function AddWord(props, auth) {
 
 						<button type='submit'>Add the new word</button>
 					</form>
-					<div className="dropdown">
-						<button type='button' className="dropbtn">Dropdown</button>
-						<div className="dropdown-content">
-							<a href="#">Link 1</a>
-							<a href="#">Link 2</a>
-							<a href="#">Link 3</a>
-						</div>
-					</div>
 				</div>
 			}
 			<Link to='/'>Back</Link>
