@@ -16,7 +16,6 @@ function App({ auth }) {
 				<Route path='/' exact component={Home} />
 				<Route path='/signup' exact component={SignUp} />
 				<Route path='/login' exact component={login} />
-				{/* <Route path='/nav' exact component={Nav} /> */}
 				{auth.isAuthenticated &&
 					<>
 						<Route path='/listofwords' exact component={ListOfWords} />
