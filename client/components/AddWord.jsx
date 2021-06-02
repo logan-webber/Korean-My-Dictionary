@@ -34,6 +34,13 @@ function AddWord(props, auth) {
 		})
 	}
 
+	const handleDropdown = (language) => {
+		if (language == 'English')
+			return formData.language == 'English'
+		else if (language == 'Korean')
+			return formData.language == 'Korean'
+	}
+
 	const history = useHistory()
 
 	const routeChange = () => {
@@ -49,8 +56,10 @@ function AddWord(props, auth) {
 						<label  >
 							<input className='new-word' type='text' name='word' placeholder='New word' onChange={(e) => handleChange(e)} />
 							<input className='new-word' type='text' name='meaning' placeholder='New meaning' onChange={(e) => handleChange(e)} />
-							<input className='language-select' type='checkbox' name='english' onChange={(e) => handleChange(e)} />
-							<input className='language-select' type='checkbox' name='korean' onChange={(e) => handleChange(e)} />
+							<select onSubmit={handleDropdown}>
+								<option value='english'>English</option>
+								<option value='korean'>Korean</option>
+							</select>
 						</label>
 
 						<button type='submit'>Add the new word</button>
