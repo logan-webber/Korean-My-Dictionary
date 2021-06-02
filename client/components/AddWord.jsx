@@ -14,10 +14,6 @@ function AddWord(props, auth) {
 		userId: props.auth.user.id
 	})
 
-	const [click, setClick] = useState(false)
-
-	const handleClick = () => setClick(!click)
-
 	const handleAddSubmit = (e) => {
 		e.preventDefault()
 		props.dispatch(addTheWords({ word: formData.word, meaning: formData.meaning, language: formData.language, user_id: formData.userId }))
@@ -53,15 +49,8 @@ function AddWord(props, auth) {
 						<label  >
 							<input className='new-word' type='text' name='word' placeholder='New word' onChange={(e) => handleChange(e)} />
 							<input className='new-word' type='text' name='meaning' placeholder='New meaning' onChange={(e) => handleChange(e)} />
-							<ul onClick={handleClick} className={click ? 'dropdown-menu clicked' : 'dropdown-menu'}>
-								{Languages.map((item) => {
-									return (
-										<li key={item.id}>
-											<div className={item.cName}>{item.language}</div>
-										</li>
-									)
-								})}
-							</ul>
+							<input className='language-select' type='checkbox' name='english' onChange={(e) => handleChange(e)} />
+							<input className='language-select' type='checkbox' name='korean' onChange={(e) => handleChange(e)} />
 						</label>
 
 						<button type='submit'>Add the new word</button>
