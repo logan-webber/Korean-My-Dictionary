@@ -10,13 +10,13 @@ function AddWord(props, auth) {
 	const [formData, setFormData] = useState({
 		word: '',
 		meaning: '',
-		language: '',
-		userId: props.auth.user.id
+		userId: props.auth.user.id,
+		language: ''
 	})
 
 	const handleAddSubmit = (e) => {
 		e.preventDefault()
-		props.dispatch(addTheWords({ word: formData.word, meaning: formData.meaning, language: formData.language, user_id: formData.userId }))
+		props.dispatch(addTheWords({ word: formData.word, meaning: formData.meaning, user_id: formData.userId, language: formData.language }))
 		console.log('submitted data')
 		routeChange()
 	}
@@ -34,13 +34,6 @@ function AddWord(props, auth) {
 		})
 	}
 
-	const handleDropdown = (language) => {
-		if (language == 'English')
-			return formData.language == 'English'
-		else if (language == 'Korean')
-			return formData.language == 'Korean'
-	}
-
 	const history = useHistory()
 
 	const routeChange = () => {
@@ -53,10 +46,10 @@ function AddWord(props, auth) {
 			{!auth.isAuthenticated &&
 				<div className='add-word'>
 					<form onSubmit={handleAddSubmit}>
-						<label  >
+						<label>
 							<input className='new-word' type='text' name='word' placeholder='New word' onChange={(e) => handleChange(e)} />
 							<input className='new-word' type='text' name='meaning' placeholder='New meaning' onChange={(e) => handleChange(e)} />
-							<select onSubmit={handleDropdown}>
+							<select onChange={(e) => handleChange(e)}>
 								<option value='english'>English</option>
 								<option value='korean'>Korean</option>
 							</select>

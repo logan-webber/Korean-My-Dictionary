@@ -28,12 +28,6 @@ function Dropdown(props) {
 
 }
 
-
-
-
-
-
-
 const mapStateToProps = ({ auth }) => {
 	return {
 		auth,
