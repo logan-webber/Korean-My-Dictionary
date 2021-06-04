@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import Dropdown from './Dropdown'
+import { logoutUser } from '../actions/auth'
 
 function Nav({ props, auth, logout }) {
 
