@@ -46,8 +46,8 @@ function AddWord(props, auth) {
 						<input className='new-word' type='text' name='word' placeholder='New word' onChange={(e) => handleChange(e)} />
 						<input className='new-word' type='text' name='meaning' placeholder='New meaning' onChange={(e) => handleChange(e)} />
 							<select name='language' onChange={(e) => handleChange(e)}>
-								<option value='English' >English</option>
-								<option value='Korean' >Korean</option>
+								<option value='English'>English</option>
+								<option value='Korean'>Korean</option>
 							</select>
 						</label>
 						<button type='submit'>Add the new word</button>
