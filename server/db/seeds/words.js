@@ -8,6 +8,7 @@ exports.seed = function (knex) {
         { id: 2, word: 'Gamsahabnida', meaning: 'Thank you', user_id: 2, language: 'Korean'},
         { id: 3, word: 'Ppang', meaning: 'Bread', user_id: 2, language: 'Korean'},
         { id: 4, word: 'Sarang', meaning: 'Love', user_id: 1, language: 'Korean'},
+        { id: 5, word: 'Chur', meaning: 'Good', user_id: 1, language: 'English'},
       ]);
     });
 };

@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { Link, useHistory } from 'react-router-dom'
 
 import { addTheWords } from '../actions/index'
-// import { Languages } from '../data-storage/Languages'
 
 function AddWord(props, auth) {
 
@@ -31,16 +30,6 @@ function AddWord(props, auth) {
 		})
 	}
 
-	// const handleSelectChange = (e) => {
-	// 	setFormData(currentFormData => {
-	// 		console.log(e)
-	// 		return {
-	// 			...currentFormData,
-	// 			[e.target.name]: e.target.value
-	// 		}
-	// 	})
-	// }
-
 	const history = useHistory()
 
 	const routeChange = () => {
@@ -61,7 +50,6 @@ function AddWord(props, auth) {
 								<option value='Korean' >Korean</option>
 							</select>
 						</label>
-
 						<button type='submit'>Add the new word</button>
 					</form>
 				</div>
