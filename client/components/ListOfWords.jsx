@@ -39,25 +39,14 @@ function ListOfWords(props, auth) {
 		})
 	}
 
-	// This solution is a bit hard coded but it works for me since I am not planning on having 10000 languages rather like 20
-	// mabye so I will put this in its own file if I'm feeling lazy or I could create a better solution in the future.
-	// const findLangauge = (id) => {
-	// 	if (id === 1) {
-	// 		return 'English'
-	// 	} else if (id === 2) {
-	// 		return 'Korean'
-	// 	}
-	// }
-
 	// This function ensure that users only see their own data and not every entry into the words table
 	// it currently doesnt do anything to limit the update or delete buttons for other users words.
 	const findWordsForEachUser = (userId, data) => {
 		if (userId == props.auth.user.id) {
 			return [
-				data.word, <br />,
-				data.meaning, <br />,
-                data.language
-				// findLangauge(data.language_id), <br />
+				data.word,
+				data.meaning,
+        data.language
 			]
 		}
 	}
