@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { connect } from 'react-redux'
 import Dropdown from './Dropdown'
 import { logoutUser } from '../actions/auth'
@@ -11,7 +11,7 @@ function Nav({ props, auth, logout }) {
 
 	const handleClick = () => setClick(!click)
 	const closeMobileMenu = () => setClick(false)
-
+	
 	const onMouseEnter = () => {
 		if (window.innerWidth < 960) {
 			setDropdown(false)
@@ -65,13 +65,13 @@ function Nav({ props, auth, logout }) {
 
 }
 
+
 const mapDispatchToProps = (dispatch, ownProps) => {
 	return {
 		logout: () => {
 			const confirmSuccess = () => ownProps.history.push('/')
 			dispatch(logoutUser(confirmSuccess))
-		},
-		fetchHouses: () => dispatch(fetchProperties())
+		}
 	}
 }
 
