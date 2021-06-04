@@ -46,7 +46,7 @@ function ListOfWords(props, auth) {
 			return [
 				data.word,
 				data.meaning,
-        data.language
+				data.language
 			]
 		}
 	}
@@ -54,16 +54,16 @@ function ListOfWords(props, auth) {
 	const checkUserForDelete = (userId, wordData) => {
 		if (userId == props.auth.user.id)
 			return <button className='button' type='button' onClick={() => deleteOneWord(wordData.id, wordData.user_id)}>
-		      			Delete
+				Delete
 				   </button>
 	}
 
 	const checkUserForUpdate = (userId) => {
-		if (userId == props.auth.user.id) 
+		if (userId == props.auth.user.id)
 			return <label>
-							<input className='new-word' type='text' name='word' placeholder='edit word' onChange={(e) => handleChange(e)}/>
-							<input className='new-word' type='text' name='meaning' placeholder='edit meaning' onChange={(e) => handleChange(e)}/>
-				   	 </label>
+				<input className='new-word' type='text' name='word' placeholder='edit word' onChange={(e) => handleChange(e)} />
+				<input className='new-word' type='text' name='meaning' placeholder='edit meaning' onChange={(e) => handleChange(e)} />
+			</label>
 	}
 
 	const updateButtonStorage = (userId) => {
@@ -78,13 +78,11 @@ function ListOfWords(props, auth) {
 					<ul className='list'>
 						{props.words.map(wrd =>
 							<li key={wrd.id}>
-								<br/>
 								{findWordsForEachUser(wrd.user_id, wrd)}
-								<br/>
 								<form onSubmit={(e) => handleUpdateSubmit(wrd.id, e)}>
 									{checkUserForUpdate(wrd.user_id)}
 									{updateButtonStorage(wrd.user_id)}
-                                    {checkUserForDelete(wrd.user_id, wrd)}
+									{checkUserForDelete(wrd.user_id, wrd)}
 								</form>
 							</li>)
 						}
