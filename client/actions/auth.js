@@ -72,7 +72,7 @@ export function logoutUser(confirmSuccess) {
         dispatch(requestLogout())
         removeUser()
         dispatch(receiveLogout())
-        confirmSuccess()
+        // confirmSuccess()
     }
 }
 

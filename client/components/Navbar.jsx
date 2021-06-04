@@ -11,7 +11,7 @@ function Nav({ props, auth, logout }) {
 
 	const handleClick = () => setClick(!click)
 	const closeMobileMenu = () => setClick(false)
-	
+
 	const onMouseEnter = () => {
 		if (window.innerWidth < 960) {
 			setDropdown(false)
@@ -69,8 +69,10 @@ function Nav({ props, auth, logout }) {
 const mapDispatchToProps = (dispatch, ownProps) => {
 	return {
 		logout: () => {
-			const confirmSuccess = () => ownProps.history.push('/')
-			dispatch(logoutUser(confirmSuccess))
+			// I cannot use history outside of a component function and as a result i am using a link to redirect on logout and I dont need
+			// the confirmSuccess function at this time. I may need it to deploy.
+			// const confirmSuccess = () => ownProps.history.push('/')
+			dispatch(logoutUser())
 		}
 	}
 }
