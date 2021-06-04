@@ -22,7 +22,7 @@ function AddWord(props, auth) {
 
 	const handleChange = (e) => {
 		setFormData(currentFormData => {
-			console.log(e)
+			// console.log(e)
 			return {
 				...currentFormData,
 				[e.target.name]: e.target.value
@@ -46,6 +46,7 @@ function AddWord(props, auth) {
 						<input className='new-word' type='text' name='word' placeholder='New word' onChange={(e) => handleChange(e)} />
 						<input className='new-word' type='text' name='meaning' placeholder='New meaning' onChange={(e) => handleChange(e)} />
 							<select name='language' onChange={(e) => handleChange(e)}>
+								<option value='Not Specified'>Please select a language</option>
 								<option value='English'>English</option>
 								<option value='Korean'>Korean</option>
 							</select>
