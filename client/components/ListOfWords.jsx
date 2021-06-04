@@ -87,7 +87,6 @@ function ListOfWords(props, auth) {
 							</li>)
 						}
 					</ul>
-					<Link to='/'>Back</Link>
 				</>
 			}
 			{/* For some reason auth.isAuthenticated is working backwards to normal

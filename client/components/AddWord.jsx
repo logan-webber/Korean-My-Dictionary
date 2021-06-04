@@ -55,7 +55,6 @@ function AddWord(props, auth) {
 					</form>
 				</div>
 			}
-			<Link to='/'>Back</Link>
 		</>
 	)
 }
