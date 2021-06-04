@@ -4,11 +4,11 @@ Add filter for languages
 
 
 Working on:
-Add navigation bar
 Make all pages more aesthetic
 Add buttons for features to appear on screen so its less clunky
 
 
 Completed:
+Add navigation bar
 Bind users to their own data so they only get their own words
 Add Different Languages and make them selectable
