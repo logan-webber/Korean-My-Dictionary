@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Link, useHistory } from 'react-router-dom'
 
 import { addTheWords } from '../actions/index'
-import { Languages } from '../data-storage/Languages'
+// import { Languages } from '../data-storage/Languages'
 
 function AddWord(props, auth) {
 
@@ -22,17 +22,24 @@ function AddWord(props, auth) {
 	}
 
 	const handleChange = (e) => {
-		//this function below keeps the event around so that the handlechange func can use it
-		//I ended up not needing to use it since my packages were out of date and after an npm i it worked again
-		// e.persist()
 		setFormData(currentFormData => {
-			// console.log(e)
+			console.log(e)
 			return {
 				...currentFormData,
 				[e.target.name]: e.target.value
 			}
 		})
 	}
+
+	// const handleSelectChange = (e) => {
+	// 	setFormData(currentFormData => {
+	// 		console.log(e)
+	// 		return {
+	// 			...currentFormData,
+	// 			[e.target.name]: e.target.value
+	// 		}
+	// 	})
+	// }
 
 	const history = useHistory()
 
@@ -47,11 +54,11 @@ function AddWord(props, auth) {
 				<div className='add-word'>
 					<form onSubmit={handleAddSubmit}>
 						<label>
-							<input className='new-word' type='text' name='word' placeholder='New word' onChange={(e) => handleChange(e)} />
-							<input className='new-word' type='text' name='meaning' placeholder='New meaning' onChange={(e) => handleChange(e)} />
-							<select onChange={(e) => handleChange(e)}>
-								<option value='english'>English</option>
-								<option value='korean'>Korean</option>
+						<input className='new-word' type='text' name='word' placeholder='New word' onChange={(e) => handleChange(e)} />
+						<input className='new-word' type='text' name='meaning' placeholder='New meaning' onChange={(e) => handleChange(e)} />
+							<select name='language' onChange={(e) => handleChange(e)}>
+								<option value='English' >English</option>
+								<option value='Korean' >Korean</option>
 							</select>
 						</label>
 
