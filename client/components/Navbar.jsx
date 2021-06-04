@@ -31,6 +31,9 @@ function Nav({ props, auth, logout }) {
 	return (
 		<>
 			<nav className='navbar'>
+				<>
+					<Link to='/' className='navbar-home'>Home</Link>
+				</>
 				{!auth.isAuthenticated &&
 					<>
 						<Link to='/login' className='navbar-logo'>
@@ -48,12 +51,9 @@ function Nav({ props, auth, logout }) {
 						</Link>
 					</>
 				}
-				<div className='menu-icon' onClick={handleClick}>
-					<i className={click ? 'fas fa-times' : 'fas fa-bars'} />
-				</div>
 				<ul className={click ? 'nav-menu active' : 'nav-menu'}>
 					<li className='nav-item' onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
-						<Link to='/' className='nav-links' onClick={closeMobileMenu}>
+						<Link to='/yourdictionary' className='nav-links' onClick={closeMobileMenu}>
 							Your Dictionary <i className='fas fa-caret-down' />
 						</Link>
 						{dropdown && <Dropdown />}
