@@ -12,6 +12,12 @@ function ListOfWords(props, auth) {
 		meaning: ''
 	})
 
+	const [showForm, setShowForm] = useState(false)
+
+	const showTheForm = () => {
+		setShowForm(!showForm);
+	}
+
 	useEffect(() => {
 		// These functions are what pull the data to this page so I can use it. If these are not here I cannot use the data
 		// from the db
@@ -79,11 +85,21 @@ function ListOfWords(props, auth) {
 						{props.words.map(wrd =>
 							<li key={wrd.id}>
 								{findWordsForEachUser(wrd.user_id, wrd)}
-								<form onSubmit={(e) => handleUpdateSubmit(wrd.id, e)}>
-									{checkUserForUpdate(wrd.user_id)}
-									{updateButtonStorage(wrd.user_id)}
-									{checkUserForDelete(wrd.user_id, wrd)}
-								</form>
+								{!showForm && (
+									<button onClick={showTheForm}>More</button>
+								)}
+								{showForm && (
+									<>
+										<button onClick={showTheForm}>Less</button>
+										<form onSubmit={(e) => handleUpdateSubmit(wrd.id, e)}>
+											{checkUserForUpdate(wrd.user_id)}
+											<br />
+											{updateButtonStorage(wrd.user_id)}
+											<br />
+											{checkUserForDelete(wrd.user_id, wrd)}
+										</form>
+									</>
+								)}
 							</li>)
 						}
 					</ul>
