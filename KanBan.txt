@@ -5,10 +5,11 @@ Add filter for languages
 
 Working on:
 Make all pages more aesthetic
-Add buttons for features to appear on screen so its less clunky
+Figure out how to make form and buttons hidden for words that dont belong to the user
 
 
 Completed:
 Add navigation bar
 Bind users to their own data so they only get their own words
 Add Different Languages and make them selectable
+Add buttons for features to appear on screen so its less clunky
