@@ -15,7 +15,7 @@ function ListOfWords(props, auth) {
 	const [showForm, setShowForm] = useState(false)
 
 	const showTheForm = () => {
-		setShowForm(!showForm);
+		 setShowForm(!showForm)
 	}
 
 	useEffect(() => {
@@ -66,15 +66,26 @@ function ListOfWords(props, auth) {
 
 	const checkUserForUpdate = (userId) => {
 		if (userId == props.auth.user.id)
-			return <label>
-				<input className='new-word' type='text' name='word' placeholder='edit word' onChange={(e) => handleChange(e)} />
-				<input className='new-word' type='text' name='meaning' placeholder='edit meaning' onChange={(e) => handleChange(e)} />
-			</label>
+			return
+		<label>
+			<input className='new-word' type='text' name='word' placeholder='edit word' onChange={(e) => handleChange(e)} />
+			<input className='new-word' type='text' name='meaning' placeholder='edit meaning' onChange={(e) => handleChange(e)} />
+		</label>
 	}
 
 	const updateButtonStorage = (userId) => {
 		if (userId == props.auth.user.id)
 			return <button className='button' type='submit'>Update word</button>
+	}
+
+	const showFormMoreButtonStorage = (userId) => {
+		if (userId == props.auth.user.id)
+			return <button onClick={showTheForm}>More</button>
+	}
+
+	const showFormLessButtonStorage = (userId) => {
+		if (userId == props.auth.user.id)
+			return <button onClick={showTheForm}>Less</button>
 	}
 
 	return (
@@ -86,11 +97,13 @@ function ListOfWords(props, auth) {
 							<li key={wrd.id}>
 								{findWordsForEachUser(wrd.user_id, wrd)}
 								{!showForm && (
-									<button onClick={showTheForm}>More</button>
+									<>
+										{showFormMoreButtonStorage(wrd.user_id)}
+									</>
 								)}
 								{showForm && (
 									<>
-										<button onClick={showTheForm}>Less</button>
+										{showFormLessButtonStorage(wrd.user_id)}
 										<form onSubmit={(e) => handleUpdateSubmit(wrd.id, e)}>
 											{checkUserForUpdate(wrd.user_id)}
 											<br />
