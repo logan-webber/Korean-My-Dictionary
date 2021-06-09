@@ -5,7 +5,7 @@ Add filter for languages
 
 Working on:
 Make all pages more aesthetic
-
+Reworking home page
 
 
 Completed:

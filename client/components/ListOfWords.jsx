@@ -100,12 +100,14 @@ function ListOfWords(props, auth) {
 								<br />
 								{!showForm && (
 									<>
+
 										{showFormMoreButtonStorage(wrd.user_id)}
 									</>
 								)}
 								{showForm && (
 									<>
 										{/* Form is now not showing for some reason must investigate!!!! */}
+
 										{showFormLessButtonStorage(wrd.user_id)}
 										<form onSubmit={(e) => handleUpdateSubmit(wrd.id, e)}>
 											{checkUserForUpdate(wrd.user_id)}
@@ -114,6 +116,7 @@ function ListOfWords(props, auth) {
 										</form>
 									</>
 								)}
+								<br />
 							</li>)
 						}
 					</ul>
