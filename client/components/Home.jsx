@@ -14,7 +14,7 @@ function Home( props, auth ) {
 
 	useEffect(() => {
 		const timeout = setTimeout(() => {
-			if (currentImage == adverts.length - 1) {
+			if (currentImage == images.length - 1) {
 				setCurrentImage(0)
 			} else {
 				setCurrentImage(currentImage + 1);
