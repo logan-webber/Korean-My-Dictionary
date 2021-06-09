@@ -249,6 +249,42 @@ body {
   }
 }
 
+.image-banners {
+    // border-style: solid;
+    // background-color: lightgray;
+    width: 300px;
+    height: 447px;
+    position: absolute;
+    top: 60%;
+    object-fit: cover;
 
+    &--left {
+        left: 1%;
+    }
+
+    &--right {
+        right: 1%;
+    }
+
+    &--bottom {
+        position: relative;
+        margin: 0 auto;
+        width: 760px;
+        height: 300px;
+    }
+
+    img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        opacity: 0;
+        transition: 0.4s opacity;
+        &.current {
+            opacity: 1;
+        }
+    }
+}
 
 // navbar css ends

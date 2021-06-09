@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-function Home({ auth }) {
+function Home( props, auth ) {
 
 	const images = [
 		{ url: '/images/book-closeup-1.jpg', description: 'book closeup' },
@@ -30,13 +30,13 @@ function Home({ auth }) {
 		<>
 			<h1 className='title'>Welcome to My Dictionary! </h1>
 			<>
-				<div className='main-images'>
+				<div className='main-images' className={`image-banners image-banners--${props.side}`}>
 					{images.map((image, i) => (
 						<img
 							key={i}
 							src={image.url}
 							alt={image.description}
-							className='current-image'
+							className={i === currentImage ? 'current' : ''}
 						/>
 					))}
 				</div>
