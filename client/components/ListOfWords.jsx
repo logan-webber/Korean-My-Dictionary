@@ -51,7 +51,9 @@ function ListOfWords(props, auth) {
 		if (userId == props.auth.user.id) {
 			return [
 				data.word,
+				<br />,
 				data.meaning,
+				<br />,
 				data.language
 			]
 		}
@@ -95,6 +97,7 @@ function ListOfWords(props, auth) {
 						{props.words.map(wrd =>
 							<li key={wrd.id}>
 								{findWordsForEachUser(wrd.user_id, wrd)}
+								<br />
 								{!showForm && (
 									<>
 										{showFormMoreButtonStorage(wrd.user_id)}
@@ -106,9 +109,7 @@ function ListOfWords(props, auth) {
 										{showFormLessButtonStorage(wrd.user_id)}
 										<form onSubmit={(e) => handleUpdateSubmit(wrd.id, e)}>
 											{checkUserForUpdate(wrd.user_id)}
-											<br />
 											{updateButtonStorage(wrd.user_id)}
-											<br />
 											{checkUserForDelete(wrd.user_id, wrd)}
 										</form>
 									</>
